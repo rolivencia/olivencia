@@ -1,0 +1,1 @@
+import 'wingcss/dist/wing.css'
