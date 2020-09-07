@@ -11,6 +11,9 @@ export default function Home() {
           <a href="#services">Servicios</a>
         </div>
         <div class="nav-item">
+          <a href="#team">Nuestro Equipo</a>
+        </div>
+        <div class="nav-item">
           <a href="#projects">Proyectos</a>
         </div>
       </div>
