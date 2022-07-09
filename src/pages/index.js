@@ -18,7 +18,8 @@ export default function Home() {
         </div>
       </div>
       <div class="center">
-        <h1>Olivencia C&D</h1>
+        {/*<h1>Olivencia C&D</h1>*/}
+        <h1>Sitio en construcción.</h1>
       </div>
     </div>
   )
