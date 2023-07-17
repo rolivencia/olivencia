@@ -1,0 +1,70 @@
+{
+  "name": "olivencia",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/olivencia/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{options.outputPath}",
+        "dist/apps/olivencia/.nitro",
+        "dist/apps/olivencia/ssr",
+        "dist/apps/olivencia/analog"
+      ],
+      "options": {
+        "main": "apps/olivencia/src/main.ts",
+        "configFile": "apps/olivencia/vite.config.ts",
+        "outputPath": "dist/apps/olivencia/client"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "olivencia:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "olivencia:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "olivencia:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "olivencia:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/olivencia/**/*.ts",
+          "apps/olivencia/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["apps/olivencia/coverage"]
+    }
+  },
+  "tags": []
+}
