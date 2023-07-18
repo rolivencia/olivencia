@@ -2,7 +2,10 @@
   "name": "@olivencia/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "node dist/apps/olivencia/analog/server/index.mjs",
+    "build": "nx run olivencia:build:production"
+  },
   "private": true,
   "dependencies": {
     "@analogjs/content": "^0.2.0-beta.25",
@@ -15,7 +18,7 @@
     "@angular/forms": "~16.1.0",
     "@angular/platform-browser": "~16.1.0",
     "@angular/platform-browser-dynamic": "~16.1.0",
-    "@angular/platform-server": "16.1.0",
+    "@angular/platform-server": "~16.1.0",
     "@angular/router": "~16.1.0",
     "@nx/angular": "16.5.2",
     "@trpc/client": "^10.25.0",
