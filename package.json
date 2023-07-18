@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node dist/apps/olivencia/analog/server/index.mjs",
-    "build": "nx run olivencia:build:production"
+    "build": "nx run olivencia:build:production",
+    "dev": "nx run olivencia:serve:development"
   },
   "private": true,
   "dependencies": {
