@@ -1,26 +1,59 @@
-# olivencia
+# Olivencia
 
-This project was generated with [Analog](https://analogjs.org), the fullstack meta-framework for Angular.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
 
-## Setup
+## Development server
 
-Run `npm install` to install the application dependencies.
+To start a local development server, run:
 
-## Development
+```bash
+ng serve
+```
 
-Run `npm start` for a dev server. Navigate to `http://localhost:5173/`. The application automatically reloads if you change any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Build
+## Code scaffolding
 
-Run `npm run build` to build the client/server project. The client build artifacts are located in the `dist/analog/public` directory. The server for the API build artifacts are located in the `dist/analog/server` directory.
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## Test
+```bash
+ng generate component component-name
+```
 
-Run `npm run test` to run unit tests with [Vitest](https://vitest.dev).
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-## Community
+```bash
+ng generate --help
+```
 
-- Visit and Star the [GitHub Repo](https://github.com/analogjs/analog)
-- Join the [Discord](https://chat.analogjs.org)
-- Follow us on [Twitter](https://twitter.com/analogjs)
-- Become a [Sponsor](https://github.com/sponsors/brandonroberts)
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
