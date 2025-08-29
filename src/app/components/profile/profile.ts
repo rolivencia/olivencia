@@ -1,21 +1,28 @@
 import { Component, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-profile',
   template: `
-    <div class="mb-8 flex-col items-center">
+    <div class="flex-col items-center">
       @if (profile(); as profile) {
         <div
-          class="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-200"
+          class="mx-auto mb-4 flex h-32 w-32 items-center justify-between md:justify-center rounded-full bg-gray-200"
         >
-          <span class="text-2xl font-bold text-gray-600">{{ profile.imageUrl }}</span>
+          <img
+            [ngSrc]="profile.imageUrl"
+            class="text-2xl font-bold text-gray-600 rounded-full"
+            height="128"
+            width="128"
+          />
         </div>
         <h1 class="mb-2 text-2xl font-bold text-center">{{ profile.name }}</h1>
-        <p class="mb-4 text-gray-600">{{ profile.description }}</p>
+        <p class="text-gray-600">{{ profile.description }}</p>
       }
     </div>
   `,
   styles: ``,
+  imports: [NgOptimizedImage],
 })
 export class Profile {
   private calculateYearsOfExperience(): number {
@@ -26,7 +33,7 @@ export class Profile {
 
   profile = signal({
     name: 'Ramiro Olivencia',
-    imageUrl: 'RO',
+    imageUrl: 'profile.jpg',
     description: `R&D Software Engineer. Angular Tech Lead. ${this.calculateYearsOfExperience()}+ years as a professional in software engineering. Staff @ FrontendCafé`,
   });
 }
