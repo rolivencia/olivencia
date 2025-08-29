@@ -1,0 +1,64 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-family-sans: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-family-mono: Consolas, Monaco, Menlo, monospace;
+
+  --color-primary: #104cfb;
+  --color-dark: #111;
+  --color-medium: #222;
+  --color-light-gray: #a4a4a4;
+  --color-lighter-gray: #f1f1f1;
+  --color-border-gray: #e1e1e1;
+  --color-table-border: #333030;
+  --color-text: #f5f5f5;
+
+  --breakpoint-phone: 568px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 550px;
+
+  --font-size-h1: 4rem;
+  --font-size-h1-lg: 5rem;
+  --font-size-h2: 3.6rem;
+  --font-size-h2-lg: 4.2rem;
+  --font-size-h3: 3rem;
+  --font-size-h3-lg: 3.6rem;
+  --font-size-h4: 2.4rem;
+  --font-size-h4-lg: 3rem;
+  --font-size-h5: 1.8rem;
+  --font-size-h5-lg: 2.4rem;
+  --font-size-h6: 1.5rem;
+
+  --spacing-button-x: 3.5rem;
+  --spacing-button-y: 1.1rem;
+  --spacing-input-x: 1.1rem;
+  --spacing-nav-item-x: 2rem;
+  --spacing-nav-item-y: 1rem;
+  --spacing-nav: 1rem;
+
+  --border-radius-default: 2px;
+  --border-radius-code: 4px;
+
+  --border-width-default: 1px;
+  --border-width-outline: 1.5px;
+  --border-width-table: 2px;
+
+  --transition-duration-fast: 100ms;
+  --transition-duration-default: 200ms;
+
+  --max-width-container: 960px;
+  --height-textarea: 10rem;
+  --min-height-td: 16px;
+}
+
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  display: grid;
+  height: 100%;
+}
+
+body {
+  place-items: center;
+  min-height: 100vh;
+}

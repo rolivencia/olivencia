@@ -1,26 +1,7 @@
-import 'zone.js/node';
-import '@angular/platform-server/init';
-
-import { enableProdMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { renderApplication } from '@angular/platform-server';
-
+import { App } from './app/app';
 import { config } from './app/app.config.server';
-import { AppComponent } from './app/app.component';
 
-if (import.meta.env.PROD) {
-  enableProdMode();
-}
+const bootstrap = () => bootstrapApplication(App, config);
 
-export function bootstrap() {
-  return bootstrapApplication(AppComponent, config);
-}
-
-export default async function render(url: string, document: string) {
-  const html = await renderApplication(bootstrap, {
-    document,
-    url,
-  });
-
-  return html;
-}
+export default bootstrap;
