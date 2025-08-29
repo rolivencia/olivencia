@@ -17,7 +17,7 @@ import { NgOptimizedImage } from '@angular/common';
           />
         </div>
         <h1 class="mb-2 text-2xl font-bold text-center">{{ profile.name }}</h1>
-        <p class="text-gray-600">{{ profile.description }}</p>
+        <p class="text-gray-600 text-center">{{ profile.description }}</p>
       }
     </div>
   `,

@@ -11,7 +11,7 @@ import { Profile } from './components/profile/profile';
       class="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 md:p-4"
     >
       <div
-        class="mx-auto w-full max-w-md md:rounded-3xl bg-white p-8 shadow-lg h-svh md:h-fit flex flex-col justify-center"
+        class="mx-auto w-full max-w-md md:rounded-3xl bg-white p-8 shadow-lg h-svh md:h-fit flex flex-col justify-center md:min-w-[480px]"
       >
         <app-profile class="mb-8" />
 
