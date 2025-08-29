@@ -24,7 +24,7 @@ import {
   ],
   template: `
     <a
-      [href]="link().href"
+      [href]="link().route"
       [title]="link().description"
       target="_blank"
       rel="noopener noreferrer"

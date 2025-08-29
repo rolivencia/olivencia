@@ -34,11 +34,11 @@ describe('SocialLink', () => {
 
     expect(component.link()).toBeDefined();
     expect(component.link().name).toBe('Github');
-    expect(component.link().href).toBe('https://github.com');
+    expect(component.link().route).toBe('https://github.com');
     expect(component.link().icon).toBe('featherGithub');
     expect(component.link().description).toBe('Link to Github');
     expect(typeof component.link().name).toBe('string');
-    expect(typeof component.link().href).toBe('string');
+    expect(typeof component.link().route).toBe('string');
     expect(typeof component.link().icon).toBe('string');
   });
 
