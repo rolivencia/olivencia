@@ -21,9 +21,10 @@ import { NgOptimizedImage } from '@angular/common';
           {{ profile.name }}
         </h1>
         @for (line of profile.description; track $index) {
-          <p class="text-gray-600 text-center font-body font-display text-pretty">
-            {{ line }}
-          </p>
+          <p
+            class="text-gray-600 text-center font-body font-display text-pretty"
+            [innerHTML]="line"
+          ></p>
         }
       }
     </div>
@@ -43,7 +44,7 @@ export class Profile {
     description: [
       'R&D Software Engineer — Angular Tech Lead.',
       `${this.calculateYearsOfExperience()}+ years developing enterprise-grade web apps.`,
-      'Staff @ FrontendCafé online community',
+      `Staff @ <a class="underline" href="https://frontend.cafe">FrontendCafé</a> online community`,
     ],
   });
 }
