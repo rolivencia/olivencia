@@ -1,8 +1,9 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SocialLink } from './components/social-link/social-link';
 import { LinksProvider } from './providers/links.provider';
 import { Profile } from './components/profile/profile';
+import { SEOService } from './services/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -31,8 +32,52 @@ import { Profile } from './components/profile/profile';
 
     <router-outlet /> `,
 })
-export class App {
+export class App implements OnInit {
+  private readonly seoService = inject(SEOService);
   readonly socialLinksProvider = inject(LinksProvider);
 
   socialLinks = computed(() => this.socialLinksProvider.links());
+
+  ngOnInit() {
+    // Initialize SEO with comprehensive metadata and structured data
+    this.initializeSEO();
+  }
+
+  /**
+   * Initializes comprehensive SEO setup for the application
+   * Sets up meta tags, structured data, and performance optimizations
+   */
+  private initializeSEO() {
+    // Get profile data for structured data generation
+    const profileData = {
+      name: 'Ramiro Olivencia',
+      imageUrl: 'profile.jpg'
+    };
+
+    // Generate Person schema structured data
+    const personSchema = this.seoService.generatePersonSchema(profileData);
+    
+    // Generate Website schema structured data
+    const websiteSchema = this.seoService.generateWebsiteSchema();
+    
+    // Combine both schemas into a single structured data object
+    const combinedStructuredData = [personSchema, websiteSchema];
+
+    // Update SEO with complete configuration
+    this.seoService.updateSEO({
+      title: 'Ramiro Olivencia - R&D Software Engineer',
+      description: 'Senior Software Engineer & Angular Technical Lead with 11+ years of proven expertise in architecting scalable web solutions and mentoring development teams. Staff Engineer at FrontendCafé.',
+      keywords: 'Angular, TypeScript, Frontend Developer, Tech Lead, Software Engineer, Web Development, JavaScript, HTML, CSS, FrontendCafé, Technical Leadership',
+      image: 'https://olivencia.com.ar/profile.jpg',
+      type: 'profile',
+      structuredData: combinedStructuredData
+    });
+
+    // Add security headers for enhanced protection
+    this.seoService.addSecurityHeaders();
+
+    // Preload critical fonts for better performance
+    this.seoService.preloadResource('/fonts/edelsans_regular.otf', 'font', 'font/otf');
+    this.seoService.preloadResource('/fonts/avenir_regular.ttf', 'font', 'font/ttf');
+  }
 }

@@ -1,0 +1,36 @@
+# Robots.txt for Ramiro Olivencia's personal website
+# This file tells search engine crawlers which pages they can and cannot access
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Explicitly allow access to CSS, JS, and image files for better SEO
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.ico$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ttf$
+Allow: /*.otf$
+
+# Block crawling of development/admin files if they exist
+Disallow: /admin/
+Disallow: /.well-known/
+Disallow: /api/private/
+
+# Sitemap location (helps search engines find your sitemap)
+Sitemap: https://olivencia.com.ar/sitemap.xml
+
+# Additional sitemaps if needed in the future
+# Sitemap: https://olivencia.com.ar/sitemap-images.xml
+# Sitemap: https://olivencia.com.ar/sitemap-posts.xml
+
+# Crawl-delay: Not needed for personal sites, but can be added if necessary
+# Crawl-delay: 1

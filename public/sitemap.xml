@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap for Ramiro Olivencia's personal website -->
+<!-- This file helps search engines discover and index all pages on the site -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Main homepage -->
+  <url>
+    <loc>https://olivencia.com.ar/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Profile/About page (if it exists as separate route) -->
+  <url>
+    <loc>https://olivencia.com.ar/profile</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact page (if it exists) -->
+  <url>
+    <loc>https://olivencia.com.ar/contact</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Portfolio/Projects page (if it exists) -->
+  <url>
+    <loc>https://olivencia.com.ar/projects</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog page (if it exists) -->
+  <url>
+    <loc>https://olivencia.com.ar/blog</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Resume/CV page (if it exists) -->
+  <url>
+    <loc>https://olivencia.com.ar/resume</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 
+  Additional URLs can be added here as the site grows:
+  
+  For blog posts:
+  <url>
+    <loc>https://ramiroolivencia.com/blog/post-title</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  For project pages:
+  <url>
+    <loc>https://ramiroolivencia.com/projects/project-name</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  -->
+
+</urlset>
