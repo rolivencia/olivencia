@@ -51,26 +51,28 @@ export class App implements OnInit {
     // Get profile data for structured data generation
     const profileData = {
       name: 'Ramiro Olivencia',
-      imageUrl: 'profile.jpg'
+      imageUrl: 'apple-touch-icon.png',
     };
 
     // Generate Person schema structured data
     const personSchema = this.seoService.generatePersonSchema(profileData);
-    
+
     // Generate Website schema structured data
     const websiteSchema = this.seoService.generateWebsiteSchema();
-    
+
     // Combine both schemas into a single structured data object
     const combinedStructuredData = [personSchema, websiteSchema];
 
     // Update SEO with complete configuration
     this.seoService.updateSEO({
       title: 'Ramiro Olivencia - R&D Software Engineer',
-      description: 'Senior Software Engineer & Angular Technical Lead with 11+ years of proven expertise in architecting scalable web solutions and mentoring development teams. Staff Engineer at FrontendCafé.',
-      keywords: 'Angular, TypeScript, Frontend Developer, Tech Lead, Software Engineer, Web Development, JavaScript, HTML, CSS, FrontendCafé, Technical Leadership',
-      image: 'https://olivencia.com.ar/profile.jpg',
+      description:
+        'Senior Software Engineer & Angular Technical Lead with 11+ years of proven expertise in architecting scalable web solutions and mentoring development teams. Staff Engineer at FrontendCafé.',
+      keywords:
+        'Angular, TypeScript, Frontend Developer, Tech Lead, Software Engineer, Web Development, JavaScript, HTML, CSS, FrontendCafé, Technical Leadership',
+      image: 'https://olivencia.com.ar/apple-touch-icon.png',
       type: 'profile',
-      structuredData: combinedStructuredData
+      structuredData: combinedStructuredData,
     });
 
     // Add security headers for enhanced protection
