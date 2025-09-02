@@ -1,1 +1,64 @@
-@use "tailwindcss";
+@use 'tailwindcss';
+
+@font-face {
+  font-family: Edelsans;
+  src: url('../public/fonts/edelsans_regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Edelsans;
+  src: url('../public/fonts/edelsans_ultralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Avenir Font Family */
+@font-face {
+  font-family: 'Avenir';
+  src: url('../public/fonts/avenir_light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../public/fonts/avenir_book.ttf') format('truetype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../public/fonts/avenir_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../public/fonts/avenir_heavy.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../public/fonts/avenir_black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-edelsans: Edelsans, sans-serif;
+  --font-avenir: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-body: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
