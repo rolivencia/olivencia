@@ -44,7 +44,7 @@ export class LinksProvider {
       name: 'Spotify',
       description: 'Music? You have some Spotify playlists here',
       icon: 'lucideMusic',
-      route: 'https://open.spotify.com/user/rolivencia',
+      route: 'https://open.spotify.com/user/11129071671?si=e5fd6aff7d774d17',
       type: 'external',
     },
   ]);
