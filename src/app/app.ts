@@ -8,7 +8,7 @@ import { Profile } from './components/profile/profile';
   selector: 'app-root',
   imports: [RouterOutlet, SocialLink, Profile],
   template: `<main
-      class="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 md:p-4"
+      class="flex min-h-screen items-center justify-center bg:white sm:bg-gradient-to-br sm:from-gray-200 sm:to-gray-400 md:p-4"
     >
       <div
         class="mx-auto w-full max-w-md md:rounded-3xl bg-white md:p-8 shadow-lg h-svh md:h-fit flex flex-col justify-center md:min-w-[480px]"
