@@ -43,7 +43,7 @@ export class Profile {
     imageUrl: 'profile.jpg',
     description: [
       'R&D Software Engineer — Angular Tech Lead.',
-      `${this.calculateYearsOfExperience()}+ years developing enterprise-grade web apps.`,
+      `${this.calculateYearsOfExperience()}+ years crafting enterprise-grade web apps.`,
       `Staff @ <a class="underline" href="https://frontend.cafe">FrontendCafé</a> online community`,
     ],
   });
