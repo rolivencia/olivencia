@@ -14,14 +14,21 @@ import { NgOptimizedImage } from '@angular/common';
             class="text-2xl font-bold text-gray-600 rounded-full"
             height="128"
             width="128"
+            alt="Ramiro's profile picture"
           />
         </div>
-        <h1 class="mb-2 text-2xl font-bold text-center">{{ profile.name }}</h1>
-        <p class="text-gray-600 text-center">{{ profile.description }}</p>
+        <h1 class="mb-2 text-3xl font-bold font-edelsans text-center">
+          {{ profile.name }}
+        </h1>
+        @for (line of profile.description; track $index) {
+          <p
+            class="text-gray-600 text-center font-body font-display text-pretty"
+            [innerHTML]="line"
+          ></p>
+        }
       }
     </div>
   `,
-  styles: ``,
   imports: [NgOptimizedImage],
 })
 export class Profile {
@@ -34,6 +41,10 @@ export class Profile {
   profile = signal({
     name: 'Ramiro Olivencia',
     imageUrl: 'profile.jpg',
-    description: `R&D Software Engineer. Angular Tech Lead. ${this.calculateYearsOfExperience()}+ years as a professional in software engineering. Staff @ FrontendCafé`,
+    description: [
+      'R&D Software Engineer — Angular Tech Lead.',
+      `${this.calculateYearsOfExperience()}+ years crafting enterprise-grade web apps.`,
+      `Staff @ <a class="underline" href="https://frontend.cafe">FrontendCafé</a> online community`,
+    ],
   });
 }
