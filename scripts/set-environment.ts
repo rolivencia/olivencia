@@ -18,6 +18,8 @@ const environment: EnvironmentType = (process.env['NODE_ENV'] as EnvironmentType
 const dirPath = `src/environments`;
 const targetPath = `${dirPath}/environment.ts`;
 
+console.log(process.env);
+
 const defaultEnvVariables = {
   CLARITY_PROJECT_ID: '',
 };
