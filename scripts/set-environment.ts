@@ -14,11 +14,10 @@ import { join } from 'node:path';
 
 // Constants for generating the environment file
 export type EnvironmentType = 'development' | 'production';
-const environment: EnvironmentType = (process.env['NODE_ENV'] as EnvironmentType) ?? 'development';
+const environment: EnvironmentType =
+  (process.env['VERCEL_TARGET_ENV'] as EnvironmentType) ?? 'development';
 const dirPath = `src/environments`;
 const targetPath = `${dirPath}/environment.ts`;
-
-console.log(process.env);
 
 const defaultEnvVariables = {
   CLARITY_PROJECT_ID: '',
