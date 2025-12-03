@@ -41,10 +41,10 @@ export class LinksProvider {
       type: 'external',
     },
     {
-      name: 'Spotify',
-      description: 'Music? You have some Spotify playlists here',
-      icon: 'lucideMusic',
-      route: 'https://open.spotify.com/user/11129071671?si=e5fd6aff7d774d17',
+      name: 'VSCO',
+      description: 'Pictures I took and shared on VSCO',
+      icon: 'lucideCamera',
+      route: 'https://vsco.co/rolivencia/gallery',
       type: 'external',
     },
   ]);

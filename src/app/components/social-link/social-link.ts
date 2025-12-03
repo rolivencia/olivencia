@@ -5,7 +5,7 @@ import {
   lucideGithub,
   lucideLinkedin,
   lucideMail,
-  lucideMusic,
+  lucideCamera,
   lucideTwitter,
 } from '@ng-icons/lucide';
 
@@ -18,8 +18,8 @@ import {
       lucideMail,
       lucideLinkedin,
       lucideTwitter,
-      lucideMusic,
       lucideCalendarClock,
+      lucideCamera,
     }),
   ],
   template: `
