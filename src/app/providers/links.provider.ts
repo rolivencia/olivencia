@@ -34,10 +34,10 @@ export class LinksProvider {
       type: 'external',
     },
     {
-      name: 'Calendly',
-      description: 'Book me using Calendly',
+      name: 'Calendar appointment',
+      description: 'Book me via a Google Calendar appointment',
       icon: 'lucideCalendarClock',
-      route: 'https://calendly.com/rolivencia',
+      route: 'https://calendar.app.google/KjNqTaA2QuQaNtrR8',
       type: 'external',
     },
     {
