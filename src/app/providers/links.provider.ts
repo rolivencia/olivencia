@@ -30,7 +30,7 @@ export class LinksProvider {
       name: 'Twitter',
       description: "Let's connect on Twitter",
       icon: 'lucideTwitter',
-      route: 'https://twitter.com/rolivenc',
+      route: 'https://twitter.com/rolivencia',
       type: 'external',
     },
     {
