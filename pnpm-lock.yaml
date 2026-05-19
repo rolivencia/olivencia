@@ -24,14 +24,14 @@ importers:
         specifier: ^20.2.0
         version: 20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))
       '@angular/platform-server':
-        specifier: ^20.3.19
-        version: 20.3.19(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)
+        specifier: ^20.3.21
+        version: 20.3.21(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@angular/router':
         specifier: ^20.2.0
         version: 20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@angular/ssr':
         specifier: ^20.3.25
-        version: 20.3.25(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-server@20.3.19(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))
+        version: 20.3.25(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-server@20.3.21(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))
       '@microsoft/clarity':
         specifier: ^1.0.2
         version: 1.0.2
@@ -62,7 +62,7 @@ importers:
     devDependencies:
       '@angular/build':
         specifier: ^20.2.1
-        version: 20.2.1(1ef55d977c88f150d69684d04c66c2c7)
+        version: 20.2.1(c31ea1522b028e990f709057f75cbc94)
       '@angular/cli':
         specifier: ^20.2.1
         version: 20.2.1(@types/node@20.19.11)(chokidar@4.0.3)
@@ -337,14 +337,14 @@ packages:
       '@angular/animations':
         optional: true
 
-  '@angular/platform-server@20.3.19':
-    resolution: {integrity: sha512-9STNB8Z5uYpaIgzfiJOH81c4CY2lM3oq/650+pdnjJsedxyEi+NAbnn5tF857Cd/N+43lR+OMolKgm0MJziHqw==}
+  '@angular/platform-server@20.3.21':
+    resolution: {integrity: sha512-+Pbjs4zHBRLt6EG+s5vXxQWuVIn+N7jIQuiTf2VIM5MhgcIQxY2r0iIx+wgcLvqtnjwPRK7Be+ITsRnNFgKs1A==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     peerDependencies:
-      '@angular/common': 20.3.19
-      '@angular/compiler': 20.3.19
-      '@angular/core': 20.3.19
-      '@angular/platform-browser': 20.3.19
+      '@angular/common': 20.3.21
+      '@angular/compiler': 20.3.21
+      '@angular/core': 20.3.21
+      '@angular/platform-browser': 20.3.21
       rxjs: ^6.5.3 || ^7.4.0
 
   '@angular/router@20.2.2':
@@ -4425,7 +4425,7 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular/build@20.2.1(1ef55d977c88f150d69684d04c66c2c7)':
+  '@angular/build@20.2.1(c31ea1522b028e990f709057f75cbc94)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2002.1(chokidar@4.0.3)
@@ -4460,8 +4460,8 @@ snapshots:
     optionalDependencies:
       '@angular/core': 20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)
       '@angular/platform-browser': 20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))
-      '@angular/platform-server': 20.3.19(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)
-      '@angular/ssr': 20.3.25(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-server@20.3.19(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))
+      '@angular/platform-server': 20.3.21(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)
+      '@angular/ssr': 20.3.25(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-server@20.3.21(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))
       karma: 6.4.4
       lmdb: 3.4.2
       postcss: 8.5.10
@@ -4551,7 +4551,7 @@ snapshots:
       '@angular/core': 20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)
       tslib: 2.8.1
 
-  '@angular/platform-server@20.3.19(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)':
+  '@angular/platform-server@20.3.21(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)':
     dependencies:
       '@angular/common': 20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2)
       '@angular/compiler': 20.3.18
@@ -4569,14 +4569,14 @@ snapshots:
       rxjs: 7.8.2
       tslib: 2.8.1
 
-  '@angular/ssr@20.3.25(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-server@20.3.19(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))':
+  '@angular/ssr@20.3.25(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-server@20.3.21(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2))':
     dependencies:
       '@angular/common': 20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2)
       '@angular/core': 20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)
       '@angular/router': 20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)
       tslib: 2.8.1
     optionalDependencies:
-      '@angular/platform-server': 20.3.19(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)
+      '@angular/platform-server': 20.3.21(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@20.3.18)(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(@angular/platform-browser@20.2.2(@angular/common@20.3.14(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@20.3.18(@angular/compiler@20.3.18)(rxjs@7.8.2)))(rxjs@7.8.2)
 
   '@babel/code-frame@7.27.1':
     dependencies:
