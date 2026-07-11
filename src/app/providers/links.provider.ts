@@ -43,7 +43,7 @@ export class LinksProvider {
     {
       name: '500px',
       description: 'Pictures I took and shared on 500px',
-      icon: 'lucideCamera',
+      icon: 'lucideAperture',
       route: 'https://500px.com/p/rolivencia',
       type: 'external',
     },
