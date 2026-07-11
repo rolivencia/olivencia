@@ -41,10 +41,10 @@ export class LinksProvider {
       type: 'external',
     },
     {
-      name: 'VSCO',
-      description: 'Pictures I took and shared on VSCO',
+      name: '500px',
+      description: 'Pictures I took and shared on 500px',
       icon: 'lucideCamera',
-      route: 'https://vsco.co/rolivencia/gallery',
+      route: 'https://500px.com/p/rolivencia',
       type: 'external',
     },
   ]);
