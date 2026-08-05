@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SocialLink } from './components/social-link/social-link';
 import { LinksProvider } from './providers/links.provider';
@@ -7,6 +7,7 @@ import { Profile } from './components/profile/profile';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, SocialLink, Profile],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `<main
       class="flex h-svh items-center justify-center bg:white sm:bg-gradient-to-br sm:from-gray-200 sm:to-gray-400 md:p-4"
     >

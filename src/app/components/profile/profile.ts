@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
@@ -29,6 +29,7 @@ import { NgOptimizedImage } from '@angular/common';
       }
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NgOptimizedImage],
 })
 export class Profile {
