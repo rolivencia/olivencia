@@ -24,6 +24,9 @@
     ]
   },
   "private": true,
+  "engines": {
+    "node": "^24.15.0"
+  },
   "dependencies": {
     "@angular/common": "20.3.26",
     "@angular/compiler": "20.3.26",
@@ -49,7 +52,7 @@
     "@angular/compiler-cli": "20.3.26",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^20.17.19",
+    "@types/node": "^24.13.3",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-jest": "^29.0.1",
