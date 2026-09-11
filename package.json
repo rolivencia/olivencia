@@ -33,7 +33,7 @@
     "@angular/core": "20.3.26",
     "@angular/forms": "20.3.26",
     "@angular/platform-browser": "20.3.26",
-    "@angular/platform-server": "20.3.26",
+    "@angular/platform-server": "20.3.30",
     "@angular/router": "20.3.26",
     "@angular/ssr": "20.3.26",
     "@microsoft/clarity": "^1.0.2",
