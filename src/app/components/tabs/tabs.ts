@@ -1,4 +1,4 @@
-import { Component, computed, linkedSignal, signal } from '@angular/core';
+import { Component, computed, linkedSignal, signal, ChangeDetectionStrategy } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideBookText, lucideFileText, lucideGithub, lucideLink } from '@ng-icons/lucide';
 
@@ -53,6 +53,7 @@ interface Tab {
       }
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: ``,
 })
 export class Tabs {
