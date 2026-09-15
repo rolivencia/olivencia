@@ -33,6 +33,14 @@
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
+            "security": {
+              "allowedHosts": [
+                "olivencia.com.ar",
+                "www.olivencia.com.ar",
+                "*.vercel.app",
+                "localhost"
+              ]
+            },
             "ssr": {
               "entry": "src/server.ts"
             }
