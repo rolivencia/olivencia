@@ -54,6 +54,21 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
+## Deployment
+
+The SSR server validates the `Host` header and answers 400 to hostnames it
+does not recognise. Hosts known ahead of time are listed under
+`security.allowedHosts` in `angular.json`.
+
+Any hostname that only exists at deploy time — a preview or per-branch URL,
+for example — must be supplied at runtime via `NG_ALLOWED_HOSTS`, a
+comma-separated list. It is merged with the list in `angular.json` rather
+than replacing it:
+
+```bash
+NG_ALLOWED_HOSTS="preview-abc123.example.net" node dist/olivencia/server/server.mjs
+```
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
