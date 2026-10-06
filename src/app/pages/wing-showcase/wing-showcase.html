@@ -1,6 +1,6 @@
 <div class="min-h-dvh bg-wing-paper pb-24 text-wing-ink">
   <nav class="wing z-10 border-b border-wing-gray-line md:sticky md:top-0" aria-label="Page">
-    <div class="nav container justify-between">
+    <div class="nav mx-auto w-[min(100%-2rem,60rem)] justify-between">
       <a class="nav-item pl-0" routerLink="/">&larr; Olivencia</a>
       <div class="flex flex-wrap">
         <a class="nav-item" href="#demo" [attr.aria-current]="activeSection() === 'demo' ? 'location' : null">Drop it in</a>
@@ -11,7 +11,7 @@
     </div>
   </nav>
 
-  <header class="wing container flex min-h-[48vh] flex-col justify-center py-16">
+  <header class="wing mx-auto w-[min(100%-2rem,60rem)] flex min-h-[48vh] flex-col justify-center py-16">
     <h1 class="font-edelsans mb-4 text-[clamp(3.5rem,2rem+6vw,5.5rem)] leading-none">Wing</h1>
     <p class="text-wing-5 mb-8 text-wing-gray-text">
       A CSS framework for minimalists, rebuilt on Tailwind&nbsp;v4.
@@ -23,7 +23,7 @@
   </header>
 
   <main>
-    <div class="wing container">
+    <div class="wing mx-auto w-[min(100%-2rem,60rem)]">
       <section id="demo" class="scroll-mt-20" aria-labelledby="demo-title">
         <h2 id="demo-title" class="text-wing-3 mb-3 border-t border-wing-ink pt-6">Drop it in</h2>
         <p>One class on a wrapper styles every element inside it. Toggle it to see the same markup with and without Wing.</p>
@@ -33,7 +33,7 @@
       </section>
     </div>
 
-    <div class="container mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div class="mx-auto w-[min(100%-2rem,60rem)] mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
       <app-snippet [code]="snippets.toggle" label="Form markup" />
       <div
         class="min-w-0 rounded-wing border border-wing-gray-line p-6 transition-colors duration-300"
@@ -50,19 +50,19 @@
       </div>
     </div>
 
-    <div class="wing container">
+    <div class="wing mx-auto w-[min(100%-2rem,60rem)]">
       <section id="decisions" class="mt-24 scroll-mt-20" aria-labelledby="decisions-title">
         <h2 id="decisions-title" class="text-wing-3 mb-6 border-t border-wing-ink pt-6">Decisions</h2>
-        <div class="row">
-          <div class="col">
+        <div class="grid gap-x-8 gap-y-6 md:grid-cols-3">
+          <div>
             <h3 class="text-wing-5 mb-2 font-semibold">Scoped, not global</h3>
             <p>Original Wing restyles every bare element. Here that is opt-in through <code>.wing</code>, so it never leaks into the rest of an app.</p>
           </div>
-          <div class="col">
+          <div>
             <h3 class="text-wing-5 mb-2 font-semibold">Tokens, not overrides</h3>
             <p>Colors, type and shadow are Tailwind theme variables. Remap <code>--color-wing-blue</code> once and everything follows.</p>
           </div>
-          <div class="col">
+          <div>
             <h3 class="text-wing-5 mb-2 font-semibold">Layered, so utilities win</h3>
             <p>Wing lives in the <code>base</code> and <code>components</code> layers. Any Tailwind class on the same element overrides it.</p>
           </div>
@@ -76,15 +76,15 @@
 
         <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Typography</h3>
         <p>Headings, paragraphs, links, lists and code are styled by element. The scale is fluid, so it steps up smoothly between phone and desktop.</p>
-        <div class="row">
-          <div class="col">
+        <div class="grid gap-x-8 gap-y-4 md:grid-cols-2">
+          <div>
             @for (specimen of typeSpecimens; track specimen.cls) {
               <p class="mb-3 leading-tight" [class]="specimen.cls">
                 {{ specimen.name }}
               </p>
             }
           </div>
-          <div class="col">
+          <div>
             <p>Paragraph with a <a href="#guide">link</a> and <code>inline code</code>.</p>
             <ul>
               <li>An unordered list</li>
@@ -98,19 +98,6 @@
         </div>
         <app-snippet [code]="snippets.typography" label="Typography markup" />
 
-        <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Grid</h3>
-        <p>A 960px container and a flex-weight grid. <code>col</code> shares space equally; <code>col-1</code> to <code>col-12</code> set relative weights.</p>
-        <div class="button-group">
-          <button type="button" (click)="addColumn()" [disabled]="colCount() >= 12">Add column</button>
-          <button type="button" class="outline" [disabled]="colCount() <= 1" (click)="removeColumn()">Remove column</button>
-        </div>
-        <div class="row" role="group" [attr.aria-label]="colCount() + ' columns'">
-          @for (col of cols(); track col) {
-            <div class="col center bg-black/5 py-4"><code>col</code></div>
-          }
-        </div>
-        <app-snippet [code]="snippets.grid" label="Grid markup" />
-
         <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Buttons</h3>
         <p>Filled by default, outlined with one class. Group them so they never touch.</p>
         <div class="button-group mb-4">
@@ -123,12 +110,12 @@
         <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Forms</h3>
         <p>Inputs, selects and textareas share one height, border and focus treatment.</p>
         <form [formGroup]="form" (ngSubmit)="send()">
-          <div class="row">
-            <div class="col">
+          <div class="grid gap-x-6 md:grid-cols-2">
+            <div>
               <label for="name">Name</label>
               <input id="name" type="text" placeholder="John Doe" formControlName="name" />
             </div>
-            <div class="col">
+            <div>
               <label for="type">Type</label>
               <select id="type" formControlName="type">
                 <option value="message">Message</option>
@@ -178,7 +165,7 @@
 
         <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Utilities</h3>
         <p>Wing's own helpers. Anything Tailwind already does (<code>text-center</code>, <code>hidden</code>, <code>fixed</code>) is left to Tailwind. On a phone the table restacks into label and value rows.</p>
-        <table class="table responsive mb-4">
+        <table class="table mb-4">
           <thead>
             <tr>
               <th scope="col">Class</th>

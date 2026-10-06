@@ -11,8 +11,8 @@ overlap heavily.
 | --- | --- |
 | `src/styles/wing/tokens.css` | `@theme`: colors (OKLCH), type scale, shadow, radius |
 | `src/styles/wing/base.css` | `@layer base`: element styles (headings, links, lists, code, buttons, forms) |
-| `src/styles/wing/components.css` | `@layer components`: grid, nav, card, table |
-| `src/styles/wing/utilities.css` | `@utility`: Wing-only helpers (`center`, `hide-phone`, ...) |
+| `src/styles/wing/components.css` | `@layer components`: nav, card, table |
+| `src/styles/wing/utilities.css` | `@utility`: Wing-only helpers (`center`, `horizontal-align`, ...) |
 | `src/app/pages/wing-showcase/` | Lazy route `/wing`: the showcase page rebuilt on the port |
 
 Wired in through `src/styles.scss` (`@use` of the four CSS files). Opt in by wrapping a page or
@@ -43,11 +43,9 @@ missed.
 | `text-left/center/right` | same names, native | Not reimplemented |
 | `full-width`, `hidden`, `fixed`, `position-*` | `w-full`, `hidden`, `fixed`, `relative`... | Native; no port |
 | `pull-left/right` | `float-left/right` | Kept as aliases |
-| `hide-phone/tablet` | `max-[25rem]:hidden`, `max-md:hidden` | Kept as `@utility` for parity |
+| `.row`, `.col`, `.col-1..12`, `.container`, `hide-phone/tablet` | Not ported | Tailwind's own `flex`/`grid`, `max-md:hidden` and width utilities cover these (e.g. `grid md:grid-cols-3`, `w-[min(100%-2rem,60rem)]`) |
 | `center`, `horizontal-align`, `vertical-align`, `left`, `right`, `full-screen` | `@utility` | Compose with variants (`md:center`) |
-| `.container` | `@utility container` | **Overrides** Tailwind's: 80% wide, 60rem max |
-| `.row`, `.col`, `.col-1..12` | `components` layer | Uses `gap`, not margin-left hacks |
-| `.nav*`, `.card*`, `.table(.responsive)` | `components` layer | `@apply` of utilities |
+| `.nav*`, `.card*`, `.table` | `components` layer | `@apply` of utilities |
 | Bare-element styling (`h1`, `button`, `input`...) | `base` layer, scoped `:where(.wing)` | See "Gotchas" |
 | 768px media query | `max-md:` | Same value |
 
@@ -68,7 +66,7 @@ Made deliberately while porting; each is a small, reversible deviation.
   which left prose links distinguished by color alone. `base` restores it; `.nav-item` and
   `.card-footer-item` opt out.
 - **Lists use outside markers.** Wing's `inside` markers made wrapped lines tuck under the bullet.
-- **The responsive table restacks** into label/value rows on mobile (cells need `data-label`)
+- **The table restacks** into label/value rows on mobile when its cells carry `data-label`
   instead of Wing's hidden horizontal scroll, which clipped content with no cue.
 - **`.button-group`** (new) keeps adjacent buttons from touching.
 - **Prose measure** is capped at 68ch, and inline `code` may wrap instead of forcing overflow.
@@ -83,8 +81,8 @@ Made deliberately while porting; each is a small, reversible deviation.
 2. **Wing styles bare elements; this app has its own.** Unscoped, Wing's `p { margin-bottom }`
    and `h1` rules would reflow the existing profile card. Hence the `.wing` scope. `:where()`
    keeps specificity low and the `base` layer loses to any utility class.
-3. **Name collisions.** Tailwind already owns `.container`, `.table`, `.fixed`, `.hidden`. The
-   port overrides `container` on purpose and layers on top of the others.
+3. **Name collisions.** Tailwind already owns `.table`, `.fixed`, `.hidden`; the port layers on
+   top of them instead of redefining them.
 4. **`styles.scss` is Sass.** Tailwind directives pass through Sass untouched here, so the plain
    `.css` files can be `@use`d. If the entry file ever becomes plain CSS, replace the `@use`
    lines with `@import`.
@@ -129,8 +127,8 @@ list markers, chip wrapping, distinct card copy, a form status message, a closin
 - Screenshots at 1280px and 390px for both pages: no horizontal page scroll, no new console
   errors. Heading outline checked in the browser: one h1, no skipped levels.
 - Focus rings measured after transitions settle: 2px blue on buttons, links, inputs.
-- `ng test`: 15 of 15 pass. Four new specs cover the showcase (heading outline, toggle, grid
-  bounds, table labels). Three pre-existing failures were stale test data (`SocialLink` used an
+- `ng test`: 14 of 14 pass. Three new specs cover the showcase (heading outline, toggle, table
+  labels). Three pre-existing failures were stale test data (`SocialLink` used an
   old `href`/`featherGithub` shape; `Profile` expected an initials span the component no longer
   renders) and are corrected.
 - `impeccable detect` on the pages and components: no findings.
@@ -147,5 +145,5 @@ list markers, chip wrapping, distinct card copy, a form status message, a closin
 
 Adopt as a thin, opt-in layer if you want Wing's look. Drop the colliding or redundant utilities
 (`text-*`, `hidden`, `fixed`, `position-*`) and lean on Tailwind for them. Keep tokens, base,
-grid, card, nav, table. If the goal is just this site's aesthetic, the tokens plus a few
+card, nav, table. If the goal is just this site's aesthetic, the tokens plus a few
 components are enough, and the base layer could shrink further.

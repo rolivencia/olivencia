@@ -16,11 +16,6 @@ export const snippets = {
 <p>Paragraph with a <a href="#">link</a>
 and <code>inline code</code>.</p>
 <ul><li>List item</li></ul>`,
-  grid: `<div class="row">
-  <div class="col">1</div>
-  <div class="col">2</div>
-  <div class="col-2">3 (twice as wide)</div>
-</div>`,
   buttons: `<div class="button-group">
   <button>Default</button>
   <button class="outline">Outlined</button>
@@ -44,7 +39,7 @@ and <code>inline code</code>.</p>
     </div>
   </article>
 </div>`,
-  table: `<table class="table responsive">
+  table: `<table class="table">
   <thead><tr><th>Class</th><th>Effect</th></tr></thead>
   <tbody>
     <tr><td data-label="Class">center</td><td data-label="Effect">…</td></tr>
@@ -61,8 +56,6 @@ export const utilityRows = [
   ['full-screen', 'Full width, at least one viewport tall'],
   ['pull-left', 'Floats the element left'],
   ['pull-right', 'Floats the element right'],
-  ['hide-phone', 'Hidden at 400px and below'],
-  ['hide-tablet', 'Hidden at 768px and below'],
 ] as const;
 
 export const typeSpecimens = [

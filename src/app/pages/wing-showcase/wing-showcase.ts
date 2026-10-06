@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
-  computed,
   afterNextRender,
   inject,
   signal,
@@ -30,10 +29,6 @@ export class WingShowcase {
   protected readonly typeSpecimens = typeSpecimens;
 
   protected readonly styled = signal(true);
-  protected readonly colCount = signal(3);
-  protected readonly cols = computed(() =>
-    Array.from({ length: this.colCount() }, (_, i) => i + 1),
-  );
   protected readonly activeSection = signal<string>('');
   protected readonly formStatus = signal('');
 
@@ -66,14 +61,6 @@ export class WingShowcase {
 
   toggleStyled() {
     this.styled.update((value) => !value);
-  }
-
-  addColumn() {
-    this.colCount.update((count) => Math.min(count + 1, 12));
-  }
-
-  removeColumn() {
-    this.colCount.update((count) => Math.max(count - 1, 1));
   }
 
   send() {

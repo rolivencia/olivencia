@@ -35,25 +35,8 @@ describe('WingShowcase', () => {
     expect(toggle.getAttribute('aria-pressed')).toBe('false');
   });
 
-  it('keeps the grid between 1 and 12 columns', () => {
-    const [add, remove] = [...root.querySelectorAll('.button-group button')] as HTMLButtonElement[];
-    const cells = () => root.querySelectorAll('[aria-label$="columns"] .col').length;
-
-    for (let i = 0; i < 20; i++) {
-      add.click();
-      TestBed.tick();
-    }
-    expect(cells()).toBe(12);
-    for (let i = 0; i < 20; i++) {
-      remove.click();
-      TestBed.tick();
-    }
-    expect(cells()).toBe(1);
-    expect(remove.disabled).toBeTrue();
-  });
-
-  it('labels every responsive table cell for the stacked mobile layout', () => {
-    const cells = root.querySelectorAll('table.responsive tbody td');
+  it('labels every table cell so the table can restack on mobile', () => {
+    const cells = root.querySelectorAll('table tbody td');
 
     expect(cells.length).toBeGreaterThan(0);
     cells.forEach((cell) => expect(cell.getAttribute('data-label')).toBeTruthy());

@@ -4,13 +4,6 @@
  * re-implemented; see the mapping table in docs/wing-tailwind-spike.md.
  */
 
-/* Wing's `.container` is 80% wide, capped at 960px; replaces Tailwind's breakpoint-stepped one. */
-@utility container {
-  margin-inline: auto;
-  width: 80%;
-  max-width: 60rem;
-}
-
 @utility center {
   @apply flex flex-col items-center justify-center;
 }
@@ -41,16 +34,4 @@
 
 @utility pull-right {
   @apply float-right;
-}
-
-@utility hide-phone {
-  @media (width <= 25rem) {
-    display: none;
-  }
-}
-
-@utility hide-tablet {
-  @media (width <= 48rem) {
-    display: none;
-  }
 }

@@ -1,5 +1,5 @@
 /*
- * Wing components (grid, nav, card, table) ported to the Tailwind `components` layer.
+ * Wing components (nav, card, table) ported to the Tailwind `components` layer.
  * Each is built from Tailwind utilities via @apply, so spacing and breakpoints come from the
  * Tailwind theme (`max-md:` === Wing's `max-width: 768px`).
  *
@@ -7,29 +7,6 @@
  * `utilities` is a later layer than `components`.
  */
 @layer components {
-  /* ---- Grid: .row > .col | .col-1..col-12 (flex weights, not 12 fixed widths) ---- */
-  .wing .row {
-    @apply my-2.5 flex flex-wrap justify-between gap-x-[4%] gap-y-2.5 max-md:flex-col;
-  }
-  .wing .col {
-    @apply flex-1 basis-0 max-md:basis-auto;
-  }
-  .wing .col-1 { flex: 1 1 0; }
-  .wing .col-2 { flex: 2 1 0; }
-  .wing .col-3 { flex: 3 1 0; }
-  .wing .col-4 { flex: 4 1 0; }
-  .wing .col-5 { flex: 5 1 0; }
-  .wing .col-6 { flex: 6 1 0; }
-  .wing .col-7 { flex: 7 1 0; }
-  .wing .col-8 { flex: 8 1 0; }
-  .wing .col-9 { flex: 9 1 0; }
-  .wing .col-10 { flex: 10 1 0; }
-  .wing .col-11 { flex: 11 1 0; }
-  .wing .col-12 { flex: 12 1 0; }
-  .wing :is([class^='col-'], [class*=' col-']) {
-    @apply max-md:basis-auto;
-  }
-
   /* ---- Navigation ---- */
   .wing .nav {
     @apply relative flex flex-wrap items-center p-2.5;
@@ -75,7 +52,7 @@
     @apply border-l border-wing-gray-line;
   }
 
-  /* ---- Table. `.responsive` restacks each row as label/value pairs on mobile (needs data-label on td). ---- */
+  /* ---- Table. Cells with data-label restack as label/value rows on mobile. ---- */
   .wing .table {
     @apply w-full border-collapse text-left;
   }
@@ -85,19 +62,19 @@
   .wing .table thead {
     @apply border-b-2 border-wing-ink;
   }
-  .wing .table.responsive thead {
+  .wing .table:has(td[data-label]) thead {
     @apply max-md:sr-only;
   }
-  .wing .table.responsive :is(tbody, tr) {
+  .wing .table:has(td[data-label]) :is(tbody, tr) {
     @apply max-md:block;
   }
-  .wing .table.responsive tr {
+  .wing .table:has(td[data-label]) tr {
     @apply max-md:border-b max-md:border-wing-gray-line max-md:py-2;
   }
-  .wing .table.responsive td {
+  .wing .table:has(td[data-label]) td {
     @apply max-md:flex max-md:justify-between max-md:gap-4 max-md:px-0 max-md:py-1;
   }
-  .wing .table.responsive td::before {
+  .wing .table:has(td[data-label]) td::before {
     @apply max-md:shrink-0 max-md:font-semibold max-md:content-[attr(data-label)];
   }
 
