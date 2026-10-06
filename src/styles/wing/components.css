@@ -1,5 +1,5 @@
 /*
- * Wing components (nav, card, table) ported to the Tailwind `components` layer.
+ * Wing components (card, table, button group) ported to the Tailwind `components` layer.
  * Each is built from Tailwind utilities via @apply, so spacing and breakpoints come from the
  * Tailwind theme (`max-md:` === Wing's `max-width: 768px`).
  *
@@ -7,34 +7,9 @@
  * `utilities` is a later layer than `components`.
  */
 @layer components {
-  /* ---- Navigation ---- */
-  .wing .nav {
-    @apply relative flex flex-wrap items-center p-2.5;
-  }
-  .wing .nav-menu,
-  .wing .nav-brand {
-    @apply flex;
-  }
-  .wing .nav-menu {
-    @apply flex-auto flex-row;
-  }
-  .wing .nav-item {
-    @apply px-5 py-2.5 no-underline;
-  }
-  .wing .nav-logo {
-    @apply m-0 pr-5 text-xl font-bold;
-  }
-
   /* ---- Cards ---- */
-  .wing .cards {
-    @apply mb-8 flex flex-wrap justify-between gap-x-4 overflow-hidden;
-  }
   .wing .card {
-    @apply mb-8 flex flex-col overflow-hidden rounded-wing bg-wing-card shadow-wing-card;
-    flex: 0 1 calc(50% - 0.5rem);
-  }
-  .wing .cards .card {
-    @apply max-md:flex-auto;
+    @apply flex flex-col overflow-hidden rounded-wing bg-wing-card shadow-wing-card;
   }
   .wing .card-header {
     @apply m-0 px-7 pt-5 pb-2.5 font-semibold;

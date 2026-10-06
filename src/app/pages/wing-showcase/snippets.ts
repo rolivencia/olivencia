@@ -2,8 +2,7 @@
 export const snippets = {
   install: `@use './styles/wing/tokens.css';
 @use './styles/wing/base.css';
-@use './styles/wing/components.css';
-@use './styles/wing/utilities.css';`,
+@use './styles/wing/components.css';`,
   scope: `<body class="wing">
   <!-- every element inside is styled -->
 </body>`,
@@ -25,12 +24,7 @@ and <code>inline code</code>.</p>
 <select id="type">…</select>
 <label for="message">Message</label>
 <textarea id="message"></textarea>`,
-  nav: `<nav class="nav" aria-label="Main">
-  <p class="nav-logo">Acme</p>
-  <a class="nav-item" href="#">Work</a>
-  <a class="nav-item" href="#">About</a>
-</nav>`,
-  cards: `<div class="cards">
+  cards: `<div class="grid gap-4 md:grid-cols-2">
   <article class="card">
     <h4 class="card-header">Title</h4>
     <p class="card-body">Content</p>
@@ -40,22 +34,24 @@ and <code>inline code</code>.</p>
   </article>
 </div>`,
   table: `<table class="table">
-  <thead><tr><th>Class</th><th>Effect</th></tr></thead>
+  <thead><tr><th>Utility</th><th>Use</th></tr></thead>
   <tbody>
-    <tr><td data-label="Class">center</td><td data-label="Effect">…</td></tr>
+    <tr>
+      <td data-label="Utility">bg-wing-paper</td>
+      <td data-label="Use">Page background</td>
+    </tr>
   </tbody>
 </table>`,
 };
 
-export const utilityRows = [
-  ['center', 'Centers children on both axes'],
-  ['horizontal-align', 'Centers children horizontally'],
-  ['vertical-align', 'Centers children vertically'],
-  ['left', 'Aligns children to the left'],
-  ['right', 'Aligns children to the right'],
-  ['full-screen', 'Full width, at least one viewport tall'],
-  ['pull-left', 'Floats the element left'],
-  ['pull-right', 'Floats the element right'],
+export const tokenRows = [
+  ['text-wing-1 to text-wing-6', 'Fluid heading scale'],
+  ['bg-wing-paper', 'Page background'],
+  ['bg-wing-card', 'Card surface'],
+  ['text-wing-gray-text', 'Secondary text, 6.0:1 on paper'],
+  ['border-wing-gray-line', 'Hairlines and dividers'],
+  ['text-wing-blue', 'Links and focus'],
+  ['shadow-wing-card', 'Card elevation'],
 ] as const;
 
 export const typeSpecimens = [

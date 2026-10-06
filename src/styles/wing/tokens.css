@@ -15,9 +15,6 @@
   --color-wing-gray-text: oklch(0.48 0 0); /* #5c5c5c, secondary text: 6.0:1 on paper */
   --color-wing-gray-line: oklch(0.9 0 0); /* #dbdbdb */
   --color-wing-blue: oklch(0.52 0.24 266); /* #104cfb */
-  --color-wing-red: oklch(0.63 0.26 29); /* #ff1500 */
-  --color-wing-yellow: oklch(0.83 0.17 85); /* #ffbf00 */
-  --color-wing-green: oklch(0.65 0.2 145); /* #00b30f */
 
   /* Showcase: h1 40->50px, h2 36->42, h3 30->36, h4 24->30, h5 18->24, h6 15. */
   --text-wing-1: clamp(2.5rem, 1.9rem + 1.9vw, 3.125rem);
@@ -37,5 +34,4 @@
 
   --shadow-wing-card: 0 5px 15px oklch(0 0 0 / 0.1);
   --radius-wing: 2px;
-  --ease-wing: ease;
 }

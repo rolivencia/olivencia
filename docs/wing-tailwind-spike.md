@@ -1,6 +1,6 @@
 # Spike: WingCSS on Tailwind v4
 
-**Verdict: easy.** The working port is about 330 lines of CSS across four files and took
+**Verdict: easy.** The working port is about 240 lines of CSS across three files and took
 well under a day. Wing is small enough (about 9 KB of unminified CSS) that this is a
 translation, not a migration. The real work is deciding what to keep, because Wing and Tailwind
 overlap heavily.
@@ -11,11 +11,10 @@ overlap heavily.
 | --- | --- |
 | `src/styles/wing/tokens.css` | `@theme`: colors (OKLCH), type scale, shadow, radius |
 | `src/styles/wing/base.css` | `@layer base`: element styles (headings, links, lists, code, buttons, forms) |
-| `src/styles/wing/components.css` | `@layer components`: nav, card, table |
-| `src/styles/wing/utilities.css` | `@utility`: Wing-only helpers (`center`, `horizontal-align`, ...) |
+| `src/styles/wing/components.css` | `@layer components`: card, table, button group |
 | `src/app/pages/wing-showcase/` | Lazy route `/wing`: the showcase page rebuilt on the port |
 
-Wired in through `src/styles.scss` (`@use` of the four CSS files). Opt in by wrapping a page or
+Wired in through `src/styles.scss` (`@use` of the three CSS files). Opt in by wrapping a page or
 section in `class="wing"`. Nothing outside that wrapper changes.
 
 ## Which "Wing" was ported
@@ -42,10 +41,8 @@ missed.
 | `color-*`, `background-*`, `border-*` utilities | `text-wing-*`, `bg-wing-*`, `border-wing-*` | Free from `@theme` colors |
 | `text-left/center/right` | same names, native | Not reimplemented |
 | `full-width`, `hidden`, `fixed`, `position-*` | `w-full`, `hidden`, `fixed`, `relative`... | Native; no port |
-| `pull-left/right` | `float-left/right` | Kept as aliases |
-| `.row`, `.col`, `.col-1..12`, `.container`, `hide-phone/tablet` | Not ported | Tailwind's own `flex`/`grid`, `max-md:hidden` and width utilities cover these (e.g. `grid md:grid-cols-3`, `w-[min(100%-2rem,60rem)]`) |
-| `center`, `horizontal-align`, `vertical-align`, `left`, `right`, `full-screen` | `@utility` | Compose with variants (`md:center`) |
-| `.nav*`, `.card*`, `.table` | `components` layer | `@apply` of utilities |
+| `.row`, `.col`, `.col-1..12`, `.container`, `.cards`, `.nav*`, `hide-phone/tablet`, `center`, `horizontal-align`, `vertical-align`, `left`, `right`, `full-screen`, `pull-left/right` | Not ported | Tailwind's own `flex`/`grid`, `float-*`, `min-h-dvh`, `max-md:hidden` and width utilities cover these (e.g. `grid md:grid-cols-3`, `w-[min(100%-2rem,60rem)]`) |
+| `.card*`, `.table` | `components` layer | `@apply` of utilities |
 | Bare-element styling (`h1`, `button`, `input`...) | `base` layer, scoped `:where(.wing)` | See "Gotchas" |
 | 768px media query | `max-md:` | Same value |
 
@@ -63,8 +60,8 @@ Made deliberately while porting; each is a small, reversible deviation.
 - **Reduced motion.** Transitions collapse under `prefers-reduced-motion`.
 - **Color in OKLCH**, as theme tokens, so they can be remapped to the site's palette in one place.
 - **Links are underlined.** Tailwind's preflight strips the browser underline that Wing relied on,
-  which left prose links distinguished by color alone. `base` restores it; `.nav-item` and
-  `.card-footer-item` opt out.
+  which left prose links distinguished by color alone. `base` restores it; `.card-footer-item`
+  opts out.
 - **Lists use outside markers.** Wing's `inside` markers made wrapped lines tuck under the bullet.
 - **The table restacks** into label/value rows on mobile when its cells carry `data-label`
   instead of Wing's hidden horizontal scroll, which clipped content with no cue.
@@ -145,5 +142,5 @@ list markers, chip wrapping, distinct card copy, a form status message, a closin
 
 Adopt as a thin, opt-in layer if you want Wing's look. Drop the colliding or redundant utilities
 (`text-*`, `hidden`, `fixed`, `position-*`) and lean on Tailwind for them. Keep tokens, base,
-card, nav, table. If the goal is just this site's aesthetic, the tokens plus a few
+card, table. If the goal is just this site's aesthetic, the tokens plus a few
 components are enough, and the base layer could shrink further.

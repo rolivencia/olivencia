@@ -9,7 +9,7 @@ import {
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Snippet } from './snippet';
-import { snippets, typeSpecimens, utilityRows } from './snippets';
+import { snippets, typeSpecimens, tokenRows } from './snippets';
 
 const SECTION_IDS = ['demo', 'decisions', 'guide'] as const;
 
@@ -25,7 +25,7 @@ export class WingShowcase {
   private readonly destroyRef = inject(DestroyRef);
 
   protected readonly snippets = snippets;
-  protected readonly utilityRows = utilityRows;
+  protected readonly tokenRows = tokenRows;
   protected readonly typeSpecimens = typeSpecimens;
 
   protected readonly styled = signal(true);

@@ -1,12 +1,12 @@
 <div class="min-h-dvh bg-wing-paper pb-24 text-wing-ink">
   <nav class="wing z-10 border-b border-wing-gray-line md:sticky md:top-0" aria-label="Page">
-    <div class="nav mx-auto w-[min(100%-2rem,60rem)] justify-between">
-      <a class="nav-item pl-0" routerLink="/">&larr; Olivencia</a>
+    <div class="mx-auto flex w-[min(100%-2rem,60rem)] flex-wrap items-center justify-between py-2.5">
+      <a class="inline-block px-5 py-2.5 no-underline pl-0" routerLink="/">&larr; Olivencia</a>
       <div class="flex flex-wrap">
-        <a class="nav-item" href="#demo" [attr.aria-current]="activeSection() === 'demo' ? 'location' : null">Drop it in</a>
-        <a class="nav-item" href="#decisions" [attr.aria-current]="activeSection() === 'decisions' ? 'location' : null">Decisions</a>
-        <a class="nav-item" href="#guide" [attr.aria-current]="activeSection() === 'guide' ? 'location' : null">Guide</a>
-        <a class="nav-item pr-0" href="https://github.com/kbrsh/wing">GitHub</a>
+        <a class="inline-block px-5 py-2.5 no-underline" href="#demo" [attr.aria-current]="activeSection() === 'demo' ? 'location' : null">Drop it in</a>
+        <a class="inline-block px-5 py-2.5 no-underline" href="#decisions" [attr.aria-current]="activeSection() === 'decisions' ? 'location' : null">Decisions</a>
+        <a class="inline-block px-5 py-2.5 no-underline" href="#guide" [attr.aria-current]="activeSection() === 'guide' ? 'location' : null">Guide</a>
+        <a class="inline-block px-5 py-2.5 no-underline pr-0" href="https://github.com/kbrsh/wing">GitHub</a>
       </div>
     </div>
   </nav>
@@ -71,7 +71,7 @@
 
       <section id="guide" class="mt-24 scroll-mt-20" aria-labelledby="guide-title">
         <h2 id="guide-title" class="text-wing-3 mb-3 border-t border-wing-ink pt-6">Guide</h2>
-        <p>Each component below shows the live result and the markup that produces it. To use Wing, add these four files to your stylesheet and put <code>class="wing"</code> on a wrapper.</p>
+        <p>Each component below shows the live result and the markup that produces it. To use Wing, add these three files to your stylesheet and put <code>class="wing"</code> on a wrapper.</p>
         <app-snippet [code]="snippets.install" label="Stylesheet setup" />
 
         <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Typography</h3>
@@ -133,19 +133,9 @@
         </form>
         <app-snippet [code]="snippets.forms" label="Form markup" />
 
-        <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Navigation</h3>
-        <p>A flex row with an optional logo. Pair it with <code>sticky</code> or the alignment utilities.</p>
-        <nav class="nav mb-4 rounded-wing border border-wing-gray-line" aria-label="Example">
-          <p class="nav-logo">Acme</p>
-          <a class="nav-item" href="#guide">Work</a>
-          <a class="nav-item" href="#guide">About</a>
-          <a class="nav-item" href="#guide">Contact</a>
-        </nav>
-        <app-snippet [code]="snippets.nav" label="Navigation markup" />
-
         <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Cards</h3>
-        <p>Place cards inside <code>.cards</code> for a responsive two-up layout.</p>
-        <div class="cards">
+        <p>A card is a surface with an optional header, body and footer. Lay cards out with your own grid.</p>
+        <div class="mb-4 grid gap-4 md:grid-cols-2">
           <article class="card">
             <h4 class="card-header text-wing-5">Scoped by default</h4>
             <p class="card-body">Add <code>.wing</code> where you want Wing, and nowhere else.</p>
@@ -163,20 +153,20 @@
         </div>
         <app-snippet [code]="snippets.cards" label="Card markup" />
 
-        <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Utilities</h3>
-        <p>Wing's own helpers. Anything Tailwind already does (<code>text-center</code>, <code>hidden</code>, <code>fixed</code>) is left to Tailwind. On a phone the table restacks into label and value rows.</p>
+        <h3 class="text-wing-5 mt-14 mb-3 font-semibold">Table</h3>
+        <p>Cells that carry <code>data-label</code> restack into label and value rows on a phone. This one lists the library's tokens, each of which is also a Tailwind utility.</p>
         <table class="table mb-4">
           <thead>
             <tr>
-              <th scope="col">Class</th>
-              <th scope="col">Effect</th>
+              <th scope="col">Utility</th>
+              <th scope="col">Use</th>
             </tr>
           </thead>
           <tbody>
-            @for (row of utilityRows; track row[0]) {
+            @for (row of tokenRows; track row[0]) {
               <tr>
-                <td data-label="Class"><code>{{ row[0] }}</code></td>
-                <td data-label="Effect">{{ row[1] }}</td>
+                <td data-label="Utility"><code>{{ row[0] }}</code></td>
+                <td data-label="Use">{{ row[1] }}</td>
               </tr>
             }
           </tbody>
