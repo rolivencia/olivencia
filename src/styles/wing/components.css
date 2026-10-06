@@ -1,0 +1,109 @@
+/*
+ * Wing components (grid, nav, card, table) ported to the Tailwind `components` layer.
+ * Each is built from Tailwind utilities via @apply, so spacing and breakpoints come from the
+ * Tailwind theme (`max-md:` === Wing's `max-width: 768px`).
+ *
+ * Scoped under `.wing`. A utility class on the same element always wins, because
+ * `utilities` is a later layer than `components`.
+ */
+@layer components {
+  /* ---- Grid: .row > .col | .col-1..col-12 (flex weights, not 12 fixed widths) ---- */
+  .wing .row {
+    @apply my-2.5 flex flex-wrap justify-between gap-x-[4%] gap-y-2.5 max-md:flex-col;
+  }
+  .wing .col {
+    @apply flex-1 basis-0 max-md:basis-auto;
+  }
+  .wing .col-1 { flex: 1 1 0; }
+  .wing .col-2 { flex: 2 1 0; }
+  .wing .col-3 { flex: 3 1 0; }
+  .wing .col-4 { flex: 4 1 0; }
+  .wing .col-5 { flex: 5 1 0; }
+  .wing .col-6 { flex: 6 1 0; }
+  .wing .col-7 { flex: 7 1 0; }
+  .wing .col-8 { flex: 8 1 0; }
+  .wing .col-9 { flex: 9 1 0; }
+  .wing .col-10 { flex: 10 1 0; }
+  .wing .col-11 { flex: 11 1 0; }
+  .wing .col-12 { flex: 12 1 0; }
+  .wing :is([class^='col-'], [class*=' col-']) {
+    @apply max-md:basis-auto;
+  }
+
+  /* ---- Navigation ---- */
+  .wing .nav {
+    @apply relative flex flex-wrap items-center p-2.5;
+  }
+  .wing .nav-menu,
+  .wing .nav-brand {
+    @apply flex;
+  }
+  .wing .nav-menu {
+    @apply flex-auto flex-row;
+  }
+  .wing .nav-item {
+    @apply px-5 py-2.5;
+  }
+  .wing .nav-logo {
+    @apply m-0 pr-5 text-xl font-bold;
+  }
+
+  /* ---- Cards ---- */
+  .wing .cards {
+    @apply mb-8 flex flex-wrap justify-between gap-x-4 overflow-hidden;
+  }
+  .wing .card {
+    @apply mb-8 flex flex-col overflow-hidden rounded-wing bg-wing-card shadow-wing-card;
+    flex: 0 1 calc(50% - 0.5rem);
+  }
+  .wing .cards .card {
+    @apply max-md:flex-auto;
+  }
+  .wing .card-header {
+    @apply m-0 px-7 pt-5 pb-2.5 font-semibold;
+  }
+  .wing .card-body {
+    @apply min-h-24 px-7 pb-5;
+  }
+  .wing .card-footer {
+    @apply flex flex-1 items-stretch border-t border-wing-gray-line;
+  }
+  .wing .card-footer-item {
+    @apply m-0 flex shrink-0 grow basis-0 items-center justify-center p-2.5;
+  }
+  .wing .card-footer-item:not(:first-child) {
+    @apply border-l border-wing-gray-line;
+  }
+
+  /* ---- Table. `.responsive` pivots to a horizontally scrolling, header-left layout on mobile. ---- */
+  .wing .table {
+    @apply w-full border-collapse text-left;
+  }
+  .wing .table :is(th, td) {
+    @apply px-1 py-3 align-middle;
+  }
+  .wing .table thead {
+    @apply border-b-2 border-wing-ink;
+  }
+  .wing .table.responsive {
+    @apply max-md:relative max-md:block;
+  }
+  .wing .table.responsive thead {
+    @apply max-md:float-left max-md:block max-md:border-0;
+  }
+  .wing .table.responsive thead tr {
+    @apply max-md:block max-md:border-r-2 max-md:border-wing-ink max-md:pr-2.5;
+  }
+  .wing .table.responsive th {
+    @apply max-md:block max-md:text-right;
+  }
+  .wing .table.responsive tbody {
+    @apply max-md:block max-md:overflow-x-auto max-md:whitespace-nowrap;
+  }
+  .wing .table.responsive tbody tr {
+    @apply max-md:inline-block max-md:px-2.5;
+  }
+  .wing .table.responsive td {
+    @apply max-md:block max-md:min-h-4 max-md:text-left;
+  }
+}

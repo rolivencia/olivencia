@@ -1,5 +1,11 @@
 @use 'tailwindcss';
 
+// Wing, ported to Tailwind v4 (spike). Opt-in via a `.wing` wrapper; see docs/wing-tailwind-spike.md
+@use './styles/wing/tokens.css';
+@use './styles/wing/base.css';
+@use './styles/wing/components.css';
+@use './styles/wing/utilities.css';
+
 @font-face {
   font-family: Edelsans;
   src: url('../public/fonts/edelsans_regular.otf') format('opentype');

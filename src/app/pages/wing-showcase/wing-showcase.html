@@ -1,0 +1,152 @@
+<div class="wing min-h-dvh pb-16">
+  <nav class="nav horizontal-align mt-12" aria-label="Sections">
+    <a class="nav-item" href="#features">Features</a>
+    <a class="nav-item" href="#guide">Guide</a>
+    <a class="nav-item" href="https://github.com/kbrsh/wing">GitHub</a>
+  </nav>
+
+  <header class="container center text-center h-[70vh]">
+    <h1 class="font-edelsans mb-2 text-wing-1">Wing</h1>
+    <p class="text-wing-gray-text">A CSS framework for minimalists, now running on Tailwind.</p>
+  </header>
+
+  <main class="container">
+    <section id="features" class="mb-16">
+      <h2 class="text-wing-4 font-extralight tracking-widest uppercase">Features</h2>
+      <div class="row">
+        @for (feature of features; track feature.title) {
+          <div class="col">
+            <h3 class="text-wing-5 text-center">{{ feature.title }}</h3>
+            <p>{{ feature.body }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section id="guide" class="mb-16">
+      <h2 class="text-wing-4 font-extralight tracking-widest uppercase">Guide</h2>
+
+      <h3 class="text-wing-5">Typography</h3>
+      <div class="row">
+        <div class="col">
+          <h1>H1 Heading</h1>
+          <h2>H2 Heading</h2>
+          <h3>H3 Heading</h3>
+          <h4>H4 Heading</h4>
+          <h5>H5 Heading</h5>
+          <h6>H6 Heading</h6>
+        </div>
+        <div class="col">
+          <p>Paragraph</p>
+          <p><strong>Bold</strong></p>
+          <p><em>Italic</em></p>
+          <p><a href="#guide">Link</a> and <code>inline code</code></p>
+          <ul>
+            <li>Unordered</li>
+            <li>List</li>
+          </ul>
+          <ol>
+            <li>Ordered</li>
+            <li>List</li>
+          </ol>
+        </div>
+      </div>
+
+      <h3 class="text-wing-5">Grid</h3>
+      <p>
+        A 960px container and a flex-weight grid. Use <code>col</code> or
+        <code>col-1</code>&ndash;<code>col-12</code>.
+      </p>
+      <button type="button" (click)="addColumn()">Add column</button>
+      <button type="button" class="outline" [disabled]="!canRemove()" (click)="removeColumn()">
+        Remove column
+      </button>
+      <div class="row">
+        @for (col of cols(); track col) {
+          <div class="col center bg-black/5 py-4">{{ col }}</div>
+        }
+      </div>
+
+      <h3 class="text-wing-5">Buttons</h3>
+      <div class="row">
+        <div class="col"><button type="button">Default</button></div>
+        <div class="col"><button type="button" class="outline">Outlined</button></div>
+        <div class="col"><button type="button" disabled>Disabled</button></div>
+      </div>
+
+      <h3 class="text-wing-5">Forms</h3>
+      <form class="mb-4">
+        <div class="row">
+          <div class="col">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="John Doe" />
+          </div>
+          <div class="col">
+            <label for="type">Type</label>
+            <select id="type">
+              <option>Message</option>
+              <option>Feature</option>
+              <option>Report</option>
+            </select>
+          </div>
+        </div>
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Greetings..."></textarea>
+        <button type="button">Send</button>
+      </form>
+
+      <h3 class="text-wing-5">Navigation</h3>
+      <div class="nav border border-wing-gray-line">
+        <h5 class="nav-logo">Logo</h5>
+        <a class="nav-item" href="#guide">Item</a>
+        <a class="nav-item" href="#guide">Item</a>
+        <a class="nav-item" href="#guide">Item</a>
+      </div>
+
+      <h3 class="mt-8 text-wing-5">Cards</h3>
+      <div class="cards">
+        @for (n of [1, 2]; track n) {
+          <article class="card">
+            <h4 class="card-header text-wing-5">Header</h4>
+            <p class="card-body">
+              A card with a soft shadow. Place several inside <code>.cards</code> for a responsive
+              two-up layout.
+            </p>
+            <div class="card-footer">
+              <a class="card-footer-item" href="#guide">Footer link</a>
+            </div>
+          </article>
+        }
+      </div>
+
+      <h3 class="text-wing-5">Table</h3>
+      <table class="table responsive mb-8">
+        <thead>
+          <tr>
+            <th>Build</th>
+            <th>Size</th>
+            <th>Layer</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of languages; track row.name) {
+            <tr>
+              <td>{{ row.name }}</td>
+              <td>{{ row.size }}</td>
+              <td>{{ row.layer }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+      <h3 class="text-wing-5">Utilities</h3>
+      <ul>
+        @for (u of utilities; track u[0]) {
+          <li>
+            <code>{{ u[0] }}</code> &ndash; {{ u[1] }}
+          </li>
+        }
+      </ul>
+    </section>
+  </main>
+</div>
