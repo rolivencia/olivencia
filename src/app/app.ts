@@ -10,23 +10,17 @@ import { Profile } from './components/profile/profile';
   selector: 'app-root',
   imports: [RouterOutlet, SocialLink, Profile],
   template: `@if (showProfile()) {
-      <main
-        class="flex h-svh items-center justify-center bg:white sm:bg-gradient-to-br sm:from-gray-200 sm:to-gray-400 md:p-4"
-      >
+      <main class="wing flex min-h-svh items-center justify-center md:p-6">
         <div
-          class="mx-auto w-full max-w-md md:rounded-3xl bg-white md:p-8 shadow-lg h-svh md:h-fit flex flex-col justify-center md:min-w-[480px]"
+          class="mx-auto flex min-h-svh w-full max-w-md flex-col justify-center bg-wing-card p-6 md:min-h-0 md:min-w-[480px] md:rounded-wing md:p-10 md:shadow-wing-card"
         >
           <app-profile class="mb-8" />
 
-          <div class="mb-6 justify-center flex gap-4">
+          <ul class="m-0 grid list-none grid-cols-2 gap-3 p-0">
             @for (link of socialLinks(); track $index) {
-              <!-- The special class hides social links when more than 5 exist in mobile layouts -->
-              <app-social-link
-                [link]="link"
-                class="[*:last-child:nth-child(n+5)]:hidden md:[*:last-child:nth-child(n+5)]:block"
-              />
+              <li class="mb-0"><app-social-link [link]="link" /></li>
             }
-          </div>
+          </ul>
           <!--TODO: Implement tab navigation-->
           <!-- <app-tabs />-->
         </div>

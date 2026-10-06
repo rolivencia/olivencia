@@ -28,9 +28,10 @@ import {
       [title]="link().description"
       target="_blank"
       rel="noopener noreferrer"
-      class="flex items-center justify-center h-12 w-12  bg-black text-white rounded-full p-2 transition-colors hover:bg-gray-400"
+      class="button outline my-0 w-full justify-start gap-3 px-4"
     >
-      <ng-icon [name]="link().icon" [size]="'20'" />
+      <ng-icon [name]="link().icon" [size]="'18'" aria-hidden="true" />
+      <span>{{ link().name }}</span>
     </a>
   `,
   styles: ``,
