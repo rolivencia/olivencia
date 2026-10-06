@@ -124,7 +124,8 @@ image; the console warned about it).
 
 ## Critique follow-up
 
-Impeccable (`.claude/skills/impeccable`) critiqued `/wing` at 21/28. Every priority issue was
+A design critique (run with the Impeccable skill, which lives on the separate
+`chore/impeccable-design-skill` branch) scored `/wing` at 21/28. Every priority issue was
 addressed: markup beside every component plus a live raw-versus-`.wing` toggle (P1); one h1, a
 strict h2/h3/h4 outline, and specimens rendered as paragraphs (P1); a shorter hero, consistent
 section rhythm, button groups (P2); stacked mobile table and placeholder contrast (P2); a sticky
@@ -141,15 +142,17 @@ list markers, chip wrapping, distinct card copy, a form status message, a closin
   labels). Three pre-existing failures were stale test data (`SocialLink` used an
   old `href`/`featherGithub` shape; `Profile` expected an initials span the component no longer
   renders) and are corrected.
-- `impeccable detect` on the pages and components: no findings.
-- Not checked: real devices, dark mode, and a fresh Impeccable critique of the final state.
+- An automated design-detector scan of the pages and components: no findings.
+- Not checked: real devices, dark mode, and a critique of the final state.
 
 ## Not done / open
 
 - No dark mode. Wing has none; tokens are set up so adding it is a `@media`/`data-theme` remap.
 - No visual-regression baseline against the original showcase.
-- Impeccable has no `PRODUCT.md` / `DESIGN.md` for this project yet (`impeccable init`), so its
-  critique judged against the code only.
+- A later critique (`/wing` 25/36, landing page 21/28) left some findings open. On `/wing`: the
+  "without Wing" toggle state shows Tailwind's reset instead of real browser defaults, and the
+  card footer focus ring is clipped. On the landing page: no primary action among the links, and
+  a generic identity.
 
 ## Recommendation
 
