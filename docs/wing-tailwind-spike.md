@@ -95,6 +95,19 @@ Made deliberately while porting; each is a small, reversible deviation.
 8. **`font-sans` is Avenir here.** `.wing` sets `font-sans`, and the project's `@theme` points
    `--font-sans` at the site's Avenir stack, so Wing inherits the site face instead of the
    system stack.
+9. **Angular's critical-CSS inlining breaks layered Tailwind CSS.** It copies only the rules it
+   can match to the prerendered HTML into an inline `<style>` and loads the rest later. It cannot
+   match `@layer` rules scoped with `:where(.wing)`, so the first paint was the bare page (Arial
+   heading, plain links, no background) and then snapped to the Wing design when the full
+   stylesheet arrived. Production now sets `optimization.styles.inlineCritical: false`, so the
+   stylesheet is a normal blocking `<link>`.
+10. **Fonts are preloadable.** `@font-face` points at `/fonts/...` (served from `public/`, not
+    hashed by the bundler), and `index.html` preloads the two faces above the fold, so text no
+    longer swaps from a fallback face.
+11. **The client router must finish its first navigation before rendering.** `showProfile` reads
+    the URL, and with the default non-blocking initial navigation the client briefly rendered
+    the profile card on `/wing` before switching. `withEnabledBlockingInitialNavigation()` makes
+    the first client render match the server HTML.
 
 ## Landing page
 
