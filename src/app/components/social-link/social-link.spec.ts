@@ -3,11 +3,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SocialLink } from './social-link';
 import { provideZonelessChangeDetection } from '@angular/core';
 
-const testLink = {
+const testLink: Link = {
   name: 'Github',
-  href: 'https://github.com',
-  icon: 'featherGithub',
+  route: 'https://github.com',
+  icon: 'tablerBrandGithub',
   description: 'Link to Github',
+  type: 'external',
 };
 
 describe('SocialLink', () => {
@@ -35,7 +36,7 @@ describe('SocialLink', () => {
     expect(component.link()).toBeDefined();
     expect(component.link().name).toBe('Github');
     expect(component.link().route).toBe('https://github.com');
-    expect(component.link().icon).toBe('featherGithub');
+    expect(component.link().icon).toBe('tablerBrandGithub');
     expect(component.link().description).toBe('Link to Github');
     expect(typeof component.link().name).toBe('string');
     expect(typeof component.link().route).toBe('string');
@@ -48,11 +49,11 @@ describe('SocialLink', () => {
 
     const linkElement = fixture.debugElement.nativeElement.querySelector('a');
 
-    console.log(linkElement);
     expect(linkElement).toBeTruthy();
     expect(linkElement.href).toBe('https://github.com/');
     expect(linkElement.target).toBe('_blank');
     expect(linkElement.rel).toBe('noopener noreferrer');
     expect(linkElement.title.trim()).toBe('Link to Github');
+    expect(linkElement.textContent.trim()).toBe('Github');
   });
 });

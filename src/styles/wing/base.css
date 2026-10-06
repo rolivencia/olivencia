@@ -1,0 +1,153 @@
+/*
+ * Wing's "drop it in and everything is styled" behavior, ported to the Tailwind `base` layer.
+ *
+ * Scoped to `.wing` (wrap a page or section) so Wing never restyles bare elements elsewhere in
+ * the app. `:where()` keeps specificity at Wing's original element-selector level, and the
+ * `base` layer sits below every Tailwind utility, so `class="text-2xl"` still wins.
+ */
+@layer base {
+  :where(.wing) {
+    @apply bg-wing-paper font-sans text-wing-body tracking-[0.01em] text-wing-ink;
+  }
+
+  :where(.wing) :is(h1, h2, h3, h4, h5, h6, p) {
+    @apply mt-0 mb-4;
+  }
+
+  /* Prose stays inside a 65-75ch measure. */
+  :where(.wing) p {
+    @apply max-w-[68ch] text-pretty;
+  }
+  :where(.wing) :is(h1, h2, h3, h4, h5, h6) {
+    @apply text-balance;
+  }
+
+  :where(.wing) :is(h1, h2, h3, h4, h5, h6) {
+    @apply font-normal;
+  }
+
+  :where(.wing) :is(h1, h2, h3) {
+    @apply tracking-tight;
+  }
+
+  :where(.wing) h1 {
+    @apply text-wing-1;
+  }
+  :where(.wing) h2 {
+    @apply text-wing-2;
+  }
+  :where(.wing) h3 {
+    @apply text-wing-3;
+  }
+  :where(.wing) h4 {
+    @apply text-wing-4;
+  }
+  :where(.wing) h5 {
+    @apply text-wing-5;
+  }
+  :where(.wing) h6 {
+    @apply text-wing-6;
+  }
+
+  /* Wing links turn near-black on hover and keep the underline: color alone is not a cue. */
+  :where(.wing) {
+    caret-color: var(--color-wing-blue);
+    accent-color: var(--color-wing-blue);
+  }
+  :where(.wing) ::selection {
+    background: oklch(0.52 0.24 266 / 0.2);
+  }
+
+  /* Links that are buttons (`a.button`) keep their own colors; otherwise this hover turns a filled
+     button's white label dark on its dark fill. */
+  :where(.wing) a:not(.button) {
+    @apply text-wing-blue underline underline-offset-2 transition-[color,background-color] duration-100 hover:text-wing-ink;
+  }
+
+  /* Wing used `inside` markers; wrapped lines then tuck under the bullet. Outside keeps a clean text edge. */
+  :where(.wing) :is(ul, ol) {
+    @apply mt-0 mb-4 pl-5;
+  }
+  :where(.wing) ul {
+    list-style: circle outside;
+  }
+  :where(.wing) ol {
+    list-style: decimal outside;
+  }
+  :where(.wing) li {
+    @apply mb-2.5;
+  }
+  :where(.wing) :is(ul, ol) :is(ul, ol) {
+    @apply my-2.5 text-[95%];
+  }
+
+  :where(.wing) hr {
+    @apply border-wing-gray;
+  }
+
+  :where(.wing) code {
+    @apply mx-0.5 rounded border border-black/10 bg-black/5 px-1.5 py-0.5 font-mono text-[90%] [overflow-wrap:anywhere];
+    box-decoration-break: clone;
+  }
+  :where(.wing) pre {
+    @apply mb-4;
+  }
+  :where(.wing) pre > code {
+    @apply mx-0 block overflow-x-auto px-4 py-3 whitespace-pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Buttons: filled by default, `.outline` for the hollow variant. */
+  :where(.wing) :is(button, [type='submit'], .button) {
+    @apply my-2.5 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-wing border-[1.5px] border-wing-ink bg-wing-ink px-9 py-2 text-base leading-6 text-white no-underline transition-[background-color,color,border-color,transform] duration-200;
+  }
+  :where(.wing) :is(button, [type='submit'], .button):active {
+    @apply scale-[0.99];
+  }
+  :where(.wing) :is(button, [type='submit'], .button):disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+  :where(.wing) :is(button, [type='submit'], .button).outline {
+    @apply bg-transparent text-wing-ink;
+  }
+
+  /*
+   * Filled buttons lighten a step on hover. Outline buttons invert: black fill, white label and
+   * icon (both follow currentColor), the exact negative of their resting state. The two rules
+   * are mutually exclusive (:not), so which one wins never depends on selector specificity.
+   * Hover is limited to devices that can hover, so a tap does not leave a button stuck inverted;
+   * :active covers the press everywhere.
+   */
+  @media (hover: hover) {
+    :where(.wing) :is(button, [type='submit'], .button):not(.outline, :disabled):hover {
+      @apply border-wing-ink-soft bg-wing-ink-soft;
+    }
+    :where(.wing) :is(button, [type='submit'], .button).outline:not(:disabled):hover {
+      @apply border-wing-ink bg-wing-ink text-white;
+    }
+  }
+  :where(.wing) :is(button, [type='submit'], .button).outline:not(:disabled):active {
+    @apply border-wing-ink bg-wing-ink text-white;
+  }
+
+  /* Form controls. Wing removed the focus outline outright; we swap it for a visible ring. */
+  :where(.wing) :is(input:not([type='checkbox'], [type='radio'], [type='submit']), select, textarea) {
+    @apply my-2.5 block h-11 w-full rounded-wing border border-wing-gray bg-white px-2.5 py-2.5 text-[0.8125rem] transition-[border-color,background-color] duration-200 placeholder:text-wing-gray-text hover:border-wing-ink focus:border-wing-blue;
+  }
+  :where(.wing) textarea {
+    @apply min-h-28;
+  }
+  :where(.wing) label {
+    @apply block text-sm;
+  }
+
+  :where(.wing) :is(button, [type='submit'], .button, a, input, select, textarea):focus-visible {
+    @apply outline-2 outline-offset-2 outline-wing-blue;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.wing) * {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

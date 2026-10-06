@@ -1,0 +1,63 @@
+/*
+ * Wing components (card, table, button group) ported to the Tailwind `components` layer.
+ * Each is built from Tailwind utilities via @apply, so spacing and breakpoints come from the
+ * Tailwind theme (`max-md:` === Wing's `max-width: 768px`).
+ *
+ * Scoped under `.wing`. A utility class on the same element always wins, because
+ * `utilities` is a later layer than `components`.
+ */
+@layer components {
+  /* ---- Cards ---- */
+  .wing .card {
+    @apply flex flex-col overflow-hidden rounded-wing bg-wing-card shadow-wing-card;
+  }
+  .wing .card-header {
+    @apply m-0 px-7 pt-5 pb-2.5 font-semibold;
+  }
+  .wing .card-body {
+    @apply min-h-24 px-7 pb-5;
+  }
+  .wing .card-footer {
+    @apply flex flex-1 items-stretch border-t border-wing-gray-line;
+  }
+  .wing .card-footer-item {
+    @apply m-0 no-underline flex shrink-0 grow basis-0 items-center justify-center p-2.5;
+  }
+  .wing .card-footer-item:not(:first-child) {
+    @apply border-l border-wing-gray-line;
+  }
+
+  /* ---- Table. Cells with data-label restack as label/value rows on mobile. ---- */
+  .wing .table {
+    @apply w-full border-collapse text-left;
+  }
+  .wing .table :is(th, td) {
+    @apply px-1 py-3 align-middle;
+  }
+  .wing .table thead {
+    @apply border-b-2 border-wing-ink;
+  }
+  .wing .table:has(td[data-label]) thead {
+    @apply max-md:sr-only;
+  }
+  .wing .table:has(td[data-label]) :is(tbody, tr) {
+    @apply max-md:block;
+  }
+  .wing .table:has(td[data-label]) tr {
+    @apply max-md:border-b max-md:border-wing-gray-line max-md:py-2;
+  }
+  .wing .table:has(td[data-label]) td {
+    @apply max-md:flex max-md:justify-between max-md:gap-4 max-md:px-0 max-md:py-1;
+  }
+  .wing .table:has(td[data-label]) td::before {
+    @apply max-md:shrink-0 max-md:font-semibold max-md:content-[attr(data-label)];
+  }
+
+  /* ---- Button group: adjacent buttons never touch. ---- */
+  .wing .button-group {
+    @apply flex flex-wrap items-center gap-3;
+  }
+  .wing .button-group > :is(button, .button) {
+    @apply my-0;
+  }
+}

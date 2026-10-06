@@ -38,11 +38,10 @@ describe('Profile', () => {
     expect(descriptionElement.textContent).toContain('R&D Software Engineer');
   });
 
-  it('should render initials in image placeholder', () => {
-    const compiled = fixture.nativeElement;
-    const imageElement = compiled.querySelector('span');
+  it('should render the profile picture with an accessible name', () => {
+    const imageElement = fixture.nativeElement.querySelector('img');
 
     expect(imageElement).toBeTruthy();
-    expect(imageElement.textContent.trim()).toBe('RO');
+    expect(imageElement.alt).toContain('profile picture');
   });
 });

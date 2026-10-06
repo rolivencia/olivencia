@@ -1,8 +1,13 @@
 @use 'tailwindcss';
 
+// Wing, ported to Tailwind v4 (spike). Opt-in via a `.wing` wrapper; see docs/wing-tailwind-spike.md
+@use './styles/wing/tokens.css';
+@use './styles/wing/base.css';
+@use './styles/wing/components.css';
+
 @font-face {
   font-family: Edelsans;
-  src: url('../public/fonts/edelsans_regular.otf') format('opentype');
+  src: url('/fonts/edelsans_regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -10,7 +15,7 @@
 
 @font-face {
   font-family: Edelsans;
-  src: url('../public/fonts/edelsans_ultralight.otf') format('opentype');
+  src: url('/fonts/edelsans_ultralight.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -19,7 +24,7 @@
 /* Avenir Font Family */
 @font-face {
   font-family: 'Avenir';
-  src: url('../public/fonts/avenir_light.ttf') format('truetype');
+  src: url('/fonts/avenir_light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -27,7 +32,7 @@
 
 @font-face {
   font-family: 'Avenir';
-  src: url('../public/fonts/avenir_book.ttf') format('truetype');
+  src: url('/fonts/avenir_book.woff2') format('woff2');
   font-weight: 350;
   font-style: normal;
   font-display: swap;
@@ -35,7 +40,7 @@
 
 @font-face {
   font-family: 'Avenir';
-  src: url('../public/fonts/avenir_regular.ttf') format('truetype');
+  src: url('/fonts/avenir_regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -43,7 +48,7 @@
 
 @font-face {
   font-family: 'Avenir';
-  src: url('../public/fonts/avenir_heavy.ttf') format('truetype');
+  src: url('/fonts/avenir_heavy.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -51,7 +56,7 @@
 
 @font-face {
   font-family: 'Avenir';
-  src: url('../public/fonts/avenir_black.ttf') format('truetype');
+  src: url('/fonts/avenir_black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -60,5 +65,6 @@
 @theme {
   --font-edelsans: Edelsans, sans-serif;
   --font-avenir: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-sans: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   --font-body: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
