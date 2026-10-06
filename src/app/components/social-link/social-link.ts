@@ -6,8 +6,8 @@ import {
   lucideLinkedin,
   lucideMail,
   lucideAperture,
-  lucideTwitter,
 } from '@ng-icons/lucide';
+import { tablerBrandX } from '@ng-icons/tabler-icons';
 
 @Component({
   selector: 'app-social-link',
@@ -17,7 +17,7 @@ import {
       lucideGithub,
       lucideMail,
       lucideLinkedin,
-      lucideTwitter,
+      tablerBrandX,
       lucideCalendarClock,
       lucideAperture,
     }),
