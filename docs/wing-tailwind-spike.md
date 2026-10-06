@@ -108,15 +108,19 @@ Made deliberately while porting; each is a small, reversible deviation.
     the URL, and with the default non-blocking initial navigation the client briefly rendered
     the profile card on `/wing` before switching. `withEnabledBlockingInitialNavigation()` makes
     the first client render match the server HTML.
-12. **Small text can misalign on Windows at 100% scale.** Chrome on Windows hints text and snaps
-    glyphs to whole pixels at low display scales, so round letters (`a`, `e`, `o`, `s`) can land a
-    pixel off flat ones (`E`, `m`, `l`) in 13px button labels; it turns hinting off and positions
-    glyphs at subpixel offsets at higher scales, which is why zooming in hid it. The Avenir files
-    are CFF-outline OpenType with stem hints, so they are hinted. `.wing` sets
-    `text-rendering: geometricPrecision`, and buttons use a 20px line height so the label sits on a
-    whole-pixel offset from the icon. Checked on Linux only (label-to-icon offset is now a whole
-    number of device pixels at 100-200% scaling); not verified on Windows. If it persists there,
-    the fallback is re-exporting Avenir as TrueType-outline WOFF2.
+12. **Hinted Avenir misaligns letters on Windows below about 15px.** The original Avenir files are
+    CFF-outline OpenType with stem hints on most glyphs but none on `1 I V X Y k l x`. Windows
+    (DirectWrite) grid-fits text below roughly 15px (13px at 100% zoom, 14.3px at 110%; it stopped
+    at 15.6px, 120%), so most of a label snapped to whole pixels while those letters did not,
+    and they looked a pixel off ("Email" `l`, "LinkedIn" `I` and `k`, "500px" `x`). Android and
+    Mac do not grid-fit, which is why it only showed on Windows, including in Chrome's device
+    emulation. The fix is in the font files: `public/fonts/avenir_*.woff2` are the originals with
+    hints removed, a `gasp` table that asks for no grid-fitting, and WOFF2 compression (outlines,
+    advances, kerning and metrics verified identical). Buttons also use a 20px line height so the
+    label sits on a whole-pixel offset from its icon. Not verified on Windows: Chrome on Linux
+    does not reproduce it. If it persists, set button labels to 16px. The original `.ttf` files
+    are still in `public/fonts` and no longer referenced; check Avenir's license permits
+    modified web fonts before shipping, and delete them once you are happy.
 
 ## Landing page
 

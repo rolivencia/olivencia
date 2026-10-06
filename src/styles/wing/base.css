@@ -8,13 +8,6 @@
 @layer base {
   :where(.wing) {
     @apply bg-wing-paper font-sans text-wing-body tracking-[0.01em] text-wing-ink;
-    /*
-     * Chrome on Windows hints small text and snaps each glyph to whole pixels at 100% scale, so
-     * round letters (a, e, o, s) can land a pixel off flat ones (E, m, l). It stops hinting and
-     * positions glyphs at subpixel offsets at higher scales, which is why zooming in hides it.
-     * This asks for that behavior everywhere.
-     */
-    text-rendering: geometricPrecision;
   }
 
   :where(.wing) :is(h1, h2, h3, h4, h5, h6, p) {
