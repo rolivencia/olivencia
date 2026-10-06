@@ -1,25 +1,25 @@
 import { Component, input } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
-  lucideCalendarClock,
-  lucideGithub,
-  lucideLinkedin,
-  lucideMail,
-  lucideAperture,
-} from '@ng-icons/lucide';
-import { tablerBrandX } from '@ng-icons/tabler-icons';
+  tablerAperture,
+  tablerBrandGithub,
+  tablerBrandLinkedin,
+  tablerBrandX,
+  tablerCalendarClock,
+  tablerMail,
+} from '@ng-icons/tabler-icons';
 
 @Component({
   selector: 'app-social-link',
   imports: [NgIcon],
   viewProviders: [
     provideIcons({
-      lucideGithub,
-      lucideMail,
-      lucideLinkedin,
+      tablerBrandGithub,
+      tablerMail,
+      tablerBrandLinkedin,
       tablerBrandX,
-      lucideCalendarClock,
-      lucideAperture,
+      tablerCalendarClock,
+      tablerAperture,
     }),
   ],
   template: `
