@@ -8,6 +8,13 @@
 @layer base {
   :where(.wing) {
     @apply bg-wing-paper font-sans text-wing-body tracking-[0.01em] text-wing-ink;
+    /*
+     * Chrome on Windows hints small text and snaps each glyph to whole pixels at 100% scale, so
+     * round letters (a, e, o, s) can land a pixel off flat ones (E, m, l). It stops hinting and
+     * positions glyphs at subpixel offsets at higher scales, which is why zooming in hides it.
+     * This asks for that behavior everywhere.
+     */
+    text-rendering: geometricPrecision;
   }
 
   :where(.wing) :is(h1, h2, h3, h4, h5, h6, p) {
@@ -97,7 +104,7 @@
 
   /* Buttons: filled by default, `.outline` for the hollow variant. */
   :where(.wing) :is(button, [type='submit'], .button) {
-    @apply my-2.5 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-wing border-[1.5px] border-wing-ink bg-wing-ink px-9 py-2.5 text-[0.8125rem] text-white no-underline transition-[background-color,color,border-color,transform] duration-200;
+    @apply my-2.5 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-wing border-[1.5px] border-wing-ink bg-wing-ink px-9 py-2.5 text-[0.8125rem] leading-5 text-white no-underline transition-[background-color,color,border-color,transform] duration-200;
   }
   :where(.wing) :is(button, [type='submit'], .button):hover {
     @apply border-wing-ink-soft bg-wing-ink-soft;

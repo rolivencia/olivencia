@@ -108,6 +108,15 @@ Made deliberately while porting; each is a small, reversible deviation.
     the URL, and with the default non-blocking initial navigation the client briefly rendered
     the profile card on `/wing` before switching. `withEnabledBlockingInitialNavigation()` makes
     the first client render match the server HTML.
+12. **Small text can misalign on Windows at 100% scale.** Chrome on Windows hints text and snaps
+    glyphs to whole pixels at low display scales, so round letters (`a`, `e`, `o`, `s`) can land a
+    pixel off flat ones (`E`, `m`, `l`) in 13px button labels; it turns hinting off and positions
+    glyphs at subpixel offsets at higher scales, which is why zooming in hid it. The Avenir files
+    are CFF-outline OpenType with stem hints, so they are hinted. `.wing` sets
+    `text-rendering: geometricPrecision`, and buttons use a 20px line height so the label sits on a
+    whole-pixel offset from the icon. Checked on Linux only (label-to-icon offset is now a whole
+    number of device pixels at 100-200% scaling); not verified on Windows. If it persists there,
+    the fallback is re-exporting Avenir as TrueType-outline WOFF2.
 
 ## Landing page
 
