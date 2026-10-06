@@ -64,6 +64,17 @@ Made deliberately while porting; each is a small, reversible deviation.
   (`text-wing-1`..`6`).
 - **Reduced motion.** Transitions collapse under `prefers-reduced-motion`.
 - **Color in OKLCH**, as theme tokens, so they can be remapped to the site's palette in one place.
+- **Links are underlined.** Tailwind's preflight strips the browser underline that Wing relied on,
+  which left prose links distinguished by color alone. `base` restores it; `.nav-item` and
+  `.card-footer-item` opt out.
+- **Lists use outside markers.** Wing's `inside` markers made wrapped lines tuck under the bullet.
+- **The responsive table restacks** into label/value rows on mobile (cells need `data-label`)
+  instead of Wing's hidden horizontal scroll, which clipped content with no cue.
+- **`.button-group`** (new) keeps adjacent buttons from touching.
+- **Prose measure** is capped at 68ch, and inline `code` may wrap instead of forcing overflow.
+- **Browser surfaces** are themed: `::selection`, caret and accent colors.
+- **No outline-color transition.** Inputs animated `outline-color` from `currentcolor`, flashing a
+  dark ring for 200ms when focus landed; only border and background animate now.
 
 ## Gotchas
 
@@ -83,25 +94,54 @@ Made deliberately while porting; each is a small, reversible deviation.
 6. **Showcase route hides the profile card** (`App.showProfile`), because the shell renders the
    profile unconditionally. If more pages are coming, moving the profile into a `Home` route is
    the cleaner fix, but `app.spec.ts` currently expects the shell to render the `h1`.
+7. **A toggled `.wing` scope cannot sit inside another `.wing`.** The "drop it in" demo removes
+   the class from its wrapper, so the page shell around it is deliberately not `.wing`; each
+   section opts in. The `Snippet` component carries its own `wing` class for the same reason.
+8. **`font-sans` is Avenir here.** `.wing` sets `font-sans`, and the project's `@theme` points
+   `--font-sans` at the site's Avenir stack, so Wing inherits the site face instead of the
+   system stack.
+
+## Landing page
+
+The home page (`/`) now uses the library: `.wing` wrapper, paper background and `wing-card`
+surface with `shadow-wing-card` (replacing the gray gradient and `rounded-3xl` card), the Edelsans
+name at `text-wing-3`, secondary lines in `wing-gray-text`, and the inline link underlined by the
+base layer. The six social links went from icon-only black circles to labelled Wing `outline`
+buttons in a two-column list; the `title` tooltips, `href`, `target` and `rel` are unchanged.
+Copy and content are unchanged.
+
+Behavior changes to know about: the old rule that hid the sixth link on mobile is gone (a
+two-column labelled grid fits all six), and the avatar now loads with `priority` (it is the LCP
+image; the console warned about it).
+
+## Critique follow-up
+
+Impeccable (`.claude/skills/impeccable`) critiqued `/wing` at 21/28. Every priority issue was
+addressed: markup beside every component plus a live raw-versus-`.wing` toggle (P1); one h1, a
+strict h2/h3/h4 outline, and specimens rendered as paragraphs (P1); a shorter hero, consistent
+section rhythm, button groups (P2); stacked mobile table and placeholder contrast (P2); a sticky
+back-to-site nav with `aria-current` (P3). Minor observations were also handled (alignment,
+list markers, chip wrapping, distinct card copy, a form status message, a closing action).
 
 ## Verification
 
 - `ng build` (dev and production) passes; `/` and `/wing` both prerender.
-- Screenshots at 1280px and 390px: no horizontal page scroll, no console errors from the new code.
-- `ng test`: 3 failures, **identical before and after** this branch (`Profile` initials span,
-  two `SocialLink` specs). Pre-existing; not touched.
-- The responsive table scrolls horizontally on phones (Wing's own design); not yet tested on a
-  real device.
+- Screenshots at 1280px and 390px for both pages: no horizontal page scroll, no new console
+  errors. Heading outline checked in the browser: one h1, no skipped levels.
+- Focus rings measured after transitions settle: 2px blue on buttons, links, inputs.
+- `ng test`: 15 of 15 pass. Four new specs cover the showcase (heading outline, toggle, grid
+  bounds, table labels). Three pre-existing failures were stale test data (`SocialLink` used an
+  old `href`/`featherGithub` shape; `Profile` expected an initials span the component no longer
+  renders) and are corrected.
+- `impeccable detect` on the pages and components: no findings.
+- Not checked: real devices, dark mode, and a fresh Impeccable critique of the final state.
 
 ## Not done / open
 
-- **Impeccable was not used.** It is not among the skills or plugins available to this session,
-  so the design pass above is my own judgment against its general themes (accessible focus and
-  contrast, fluid type, tokens, motion). If you install it, running its critique/polish pass
-  over `/wing` is the obvious next step.
 - No dark mode. Wing has none; tokens are set up so adding it is a `@media`/`data-theme` remap.
-- Not integrated into the home page; the spike only adds `/wing`.
 - No visual-regression baseline against the original showcase.
+- Impeccable has no `PRODUCT.md` / `DESIGN.md` for this project yet (`impeccable init`), so its
+  critique judged against the code only.
 
 ## Recommendation
 

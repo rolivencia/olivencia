@@ -1,52 +1,82 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  computed,
+  afterNextRender,
+  inject,
+  signal,
+} from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { Snippet } from './snippet';
+import { snippets, typeSpecimens, utilityRows } from './snippets';
+
+const SECTION_IDS = ['demo', 'decisions', 'guide'] as const;
 
 /** Spike: a port of the Wing showcase page (kbrsh/wing, gh-pages) running on Wing-for-Tailwind. */
 @Component({
   selector: 'app-wing-showcase',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ReactiveFormsModule, RouterLink, Snippet],
   templateUrl: './wing-showcase.html',
 })
 export class WingShowcase {
-  readonly colCount = signal(3);
-  readonly cols = computed(() => Array.from({ length: this.colCount() }, (_, i) => i + 1));
-  readonly canRemove = computed(() => this.colCount() > 1);
+  private readonly fb = inject(FormBuilder);
+  private readonly destroyRef = inject(DestroyRef);
 
-  readonly features = [
-    {
-      title: 'Intuitive',
-      body: 'Wrap a page in .wing and every element is styled automatically. There is a minimal number of classes to learn.',
-    },
-    {
-      title: 'Token-driven',
-      body: 'Colors, type scale and shadows are Tailwind theme variables, so bg-wing-blue and text-wing-3 work anywhere.',
-    },
-    {
-      title: 'Composable',
-      body: 'Wing components sit in the components layer. Any Tailwind utility on the same element wins.',
-    },
-  ];
+  protected readonly snippets = snippets;
+  protected readonly utilityRows = utilityRows;
+  protected readonly typeSpecimens = typeSpecimens;
 
-  readonly utilities = [
-    ['center', 'center children on both axes'],
-    ['horizontal-align', 'horizontally align children'],
-    ['vertical-align', 'vertically align children'],
-    ['left / right', 'align children to the left or right'],
-    ['full-screen', 'full width, at least one viewport tall'],
-    ['pull-left / pull-right', 'float the element'],
-    ['hide-phone', 'hide at 400px and below'],
-    ['hide-tablet', 'hide at 768px and below'],
-  ] as const;
+  protected readonly styled = signal(true);
+  protected readonly colCount = signal(3);
+  protected readonly cols = computed(() =>
+    Array.from({ length: this.colCount() }, (_, i) => i + 1),
+  );
+  protected readonly activeSection = signal<string>('');
+  protected readonly formStatus = signal('');
 
-  readonly languages = [
-    { name: 'Wing (Stylus)', size: '5 kB', layer: 'global CSS' },
-    { name: 'Wing for Tailwind', size: 'tree-shaken', layer: 'base + components' },
-  ];
+  protected readonly form = this.fb.nonNullable.group({
+    name: '',
+    type: 'message',
+    message: '',
+  });
+
+  constructor() {
+    afterNextRender(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries.find((entry) => entry.isIntersecting);
+          if (visible) {
+            this.activeSection.set(visible.target.id);
+          }
+        },
+        { rootMargin: '-30% 0px -60% 0px' },
+      );
+      for (const id of SECTION_IDS) {
+        const element = document.getElementById(id);
+        if (element) {
+          observer.observe(element);
+        }
+      }
+      this.destroyRef.onDestroy(() => observer.disconnect());
+    });
+  }
+
+  toggleStyled() {
+    this.styled.update((value) => !value);
+  }
 
   addColumn() {
-    this.colCount.update((n) => Math.min(n + 1, 12));
+    this.colCount.update((count) => Math.min(count + 1, 12));
   }
 
   removeColumn() {
-    this.colCount.update((n) => Math.max(n - 1, 1));
+    this.colCount.update((count) => Math.max(count - 1, 1));
+  }
+
+  send() {
+    this.formStatus.set('This is a demo form. Nothing was sent.');
   }
 }

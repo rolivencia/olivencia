@@ -10,6 +10,7 @@ target_fingerprint: "sha256:9d60210f4db9f8c73ed86511a8ecd7dd90ae26a7b298abeecb94
 target_path: /home/user/olivencia/src/app/pages/wing-showcase/wing-showcase.html
 timestamp: 2026-10-06T03-11-02Z
 slug: src-app-pages-wing-showcase-wing-showcase-html
+closed: true
 ---
 Method: dual-agent (A: design review · B: detector + browser overlay), run in isolation; B's findings entered synthesis after A finished.
 
