@@ -6,7 +6,7 @@ import { provideZonelessChangeDetection } from '@angular/core';
 const testLink: Link = {
   name: 'Github',
   route: 'https://github.com',
-  icon: 'lucideGithub',
+  icon: 'tablerBrandGithub',
   description: 'Link to Github',
   type: 'external',
 };
@@ -36,7 +36,7 @@ describe('SocialLink', () => {
     expect(component.link()).toBeDefined();
     expect(component.link().name).toBe('Github');
     expect(component.link().route).toBe('https://github.com');
-    expect(component.link().icon).toBe('lucideGithub');
+    expect(component.link().icon).toBe('tablerBrandGithub');
     expect(component.link().description).toBe('Link to Github');
     expect(typeof component.link().name).toBe('string');
     expect(typeof component.link().route).toBe('string');

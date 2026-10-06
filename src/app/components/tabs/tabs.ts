@@ -1,6 +1,6 @@
 import { Component, computed, linkedSignal, signal } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideBookText, lucideFileText, lucideGithub, lucideLink } from '@ng-icons/lucide';
+import { tablerBook, tablerFileText, tablerBrandGithub, tablerLink } from '@ng-icons/tabler-icons';
 
 type TabType = 'professional' | 'projects';
 interface Tab {
@@ -14,10 +14,10 @@ interface Tab {
   imports: [NgIcon],
   viewProviders: [
     provideIcons({
-      lucideGithub,
-      lucideBookText,
-      lucideFileText,
-      lucideLink,
+      tablerBrandGithub,
+      tablerBook,
+      tablerFileText,
+      tablerLink,
     }),
   ],
   template: `
@@ -48,7 +48,7 @@ interface Tab {
             <ng-icon [name]="link.icon" class="mr-3"></ng-icon>
             <span class="font-medium">{{ link.name }}</span>
           </div>
-          <ng-icon name="lucideLink"></ng-icon>
+          <ng-icon name="tablerLink"></ng-icon>
         </a>
       }
     </div>
@@ -64,7 +64,7 @@ export class Tabs {
         {
           name: 'Download resume',
           description: '',
-          icon: 'lucideFileText',
+          icon: 'tablerFileText',
           route: '/resume.pdf',
           type: 'external',
         },
@@ -77,14 +77,14 @@ export class Tabs {
         {
           name: 'GitHub Portfolio',
           description: '',
-          icon: 'lucideGithub',
+          icon: 'tablerBrandGithub',
           route: 'https://github.com/rolivencia',
           type: 'external',
         },
         {
           name: 'La Cuentoneta',
           description: '',
-          icon: 'lucideBookText',
+          icon: 'tablerBook',
           route: 'https://cuentoneta.ar',
           type: 'external',
         },
