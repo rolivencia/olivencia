@@ -28,7 +28,7 @@
         <h2 id="demo-title" class="text-wing-3 mb-3 border-t border-wing-ink pt-6">Drop it in</h2>
         <p>One class on a wrapper styles every element inside it. Toggle it to see the same markup with and without Wing.</p>
         <button type="button" class="outline" [attr.aria-pressed]="styled()" (click)="toggleStyled()">
-          {{ styled() ? 'Remove' : 'Add' }} the <code class="mx-1">wing</code> class
+          <span>{{ styled() ? 'Remove' : 'Add' }} the <code class="mx-1">wing</code> class</span>
         </button>
       </section>
     </div>

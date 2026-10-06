@@ -16,7 +16,7 @@ import { Profile } from './components/profile/profile';
         >
           <app-profile class="mb-8" />
 
-          <ul class="m-0 grid list-none grid-cols-2 gap-3 p-0">
+          <ul class="m-0 grid list-none grid-cols-1 gap-3 p-0 min-[27rem]:grid-cols-2">
             @for (link of socialLinks(); track $index) {
               <li class="mb-0"><app-social-link [link]="link" /></li>
             }

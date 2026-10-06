@@ -121,11 +121,12 @@ Made deliberately while porting; each is a small, reversible deviation.
     Mac do not grid-fit, which is why it only showed on Windows, including in Chrome's device
     emulation. The fix is in the font files: `public/fonts/avenir_*.woff2` are the originals with
     hints removed, a `gasp` table that asks for no grid-fitting, and WOFF2 compression (outlines,
-    advances, kerning and metrics verified identical). Buttons also use a 20px line height so the
-    label sits on a whole-pixel offset from its icon. Not verified on Windows: Chrome on Linux
-    does not reproduce it. If it persists, set button labels to 16px. The original `.ttf` files
-    are still in `public/fonts` and no longer referenced; check Avenir's license permits
-    modified web fonts before shipping, and delete them once you are happy.
+    advances, kerning and metrics verified identical). Button labels are also 16px with a 24px line
+    height (not 13px/20px): above the size where Windows grid-fits, easier to read, and the label
+    sits on a whole-pixel offset from its icon. Buttons stay 44px tall. Not verified on Windows:
+    Chrome on Linux does not reproduce it. The original `.ttf` files are still in `public/fonts`
+    and no longer referenced; check Avenir's license permits modified web fonts before shipping,
+    and delete them once you are happy.
 
 ## Landing page
 
@@ -136,8 +137,9 @@ base layer. The six social links went from icon-only black circles to labelled W
 buttons in a two-column list; the `title` tooltips, `href`, `target` and `rel` are unchanged.
 Copy and content are unchanged.
 
-Behavior changes to know about: the old rule that hid the sixth link on mobile is gone (a
-two-column labelled grid fits all six), and the avatar now loads with `priority` (it is the LCP
+Behavior changes to know about: the old rule that hid the sixth link on mobile is gone (the
+labelled links stack in one column below 432px and use two columns above it, so the longest label,
+"Book a meeting" at 16px, never wraps), and the avatar now loads with `priority` (it is the LCP
 image; the console warned about it).
 
 ## Critique follow-up

@@ -99,7 +99,7 @@
 
   /* Buttons: filled by default, `.outline` for the hollow variant. */
   :where(.wing) :is(button, [type='submit'], .button) {
-    @apply my-2.5 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-wing border-[1.5px] border-wing-ink bg-wing-ink px-9 py-2.5 text-[0.8125rem] leading-5 text-white no-underline transition-[background-color,color,border-color,transform] duration-200;
+    @apply my-2.5 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-wing border-[1.5px] border-wing-ink bg-wing-ink px-9 py-2 text-base leading-6 text-white no-underline transition-[background-color,color,border-color,transform] duration-200;
   }
   :where(.wing) :is(button, [type='submit'], .button):active {
     @apply scale-[0.99];
