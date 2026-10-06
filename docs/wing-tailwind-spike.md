@@ -97,10 +97,9 @@ Made deliberately while porting; each is a small, reversible deviation.
 7. **A toggled `.wing` scope cannot sit inside another `.wing`.** The "drop it in" demo removes
    the class from its wrapper, so the page shell around it is deliberately not `.wing`; each
    section opts in. The `Snippet` component carries its own `wing` class for the same reason.
-8. **Body text uses the system font stack.** `tokens.css` sets `--font-sans` to Wing's original
-   stack (`-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, ...`), so each platform renders
-   its own UI font. The site's bundled Avenir was removed. Edelsans (Regular and Ultralight)
-   is still bundled for display text; only Regular is used today.
+8. **`font-sans` is Avenir here.** `.wing` sets `font-sans`, and the project's `@theme` points
+   `--font-sans` at the site's Avenir stack, so Wing inherits the site face instead of the
+   system stack.
 9. **Angular's critical-CSS inlining breaks layered Tailwind CSS.** It copies only the rules it
    can match to the prerendered HTML into an inline `<style>` and loads the rest later. It cannot
    match `@layer` rules scoped with `:where(.wing)`, so the first paint was the bare page (Arial
@@ -114,12 +113,19 @@ Made deliberately while porting; each is a small, reversible deviation.
     the URL, and with the default non-blocking initial navigation the client briefly rendered
     the profile card on `/wing` before switching. `withEnabledBlockingInitialNavigation()` makes
     the first client render match the server HTML.
-12. **Why Avenir was dropped.** Its files were CFF-outline OpenType with stem hints on most glyphs
-    but none on `1 I V X Y k l x`. Windows grid-fits text below roughly 15px, so those letters sat
-    a pixel off the rest of a word in 13px button labels (it vanished at 120% zoom and never showed
-    on Android or Mac). Removing the hints worked around it, but the licensing of a modified
-    commercial font was unclear, so the font is gone and Wing's system stack is used instead.
-    Buttons keep a 20px line height so a label sits on a whole-pixel offset from its icon.
+12. **Hinted Avenir misaligns letters on Windows below about 15px.** The original Avenir files are
+    CFF-outline OpenType with stem hints on most glyphs but none on `1 I V X Y k l x`. Windows
+    (DirectWrite) grid-fits text below roughly 15px (13px at 100% zoom, 14.3px at 110%; it stopped
+    at 15.6px, 120%), so most of a label snapped to whole pixels while those letters did not,
+    and they looked a pixel off ("Email" `l`, "LinkedIn" `I` and `k`, "500px" `x`). Android and
+    Mac do not grid-fit, which is why it only showed on Windows, including in Chrome's device
+    emulation. The fix is in the font files: `public/fonts/avenir_*.woff2` are the originals with
+    hints removed, a `gasp` table that asks for no grid-fitting, and WOFF2 compression (outlines,
+    advances, kerning and metrics verified identical). Buttons also use a 20px line height so the
+    label sits on a whole-pixel offset from its icon. Not verified on Windows: Chrome on Linux
+    does not reproduce it. If it persists, set button labels to 16px. The original `.ttf` files
+    are still in `public/fonts` and no longer referenced; check Avenir's license permits
+    modified web fonts before shipping, and delete them once you are happy.
 
 ## Landing page
 
