@@ -62,6 +62,11 @@ Made deliberately while porting; each is a small, reversible deviation.
 - **Links are underlined.** Tailwind's preflight strips the browser underline that Wing relied on,
   which left prose links distinguished by color alone. `base` restores it; `.card-footer-item`
   opts out.
+- **Outline buttons invert on hover and press** (black fill, white label and icon, the exact negative
+  of the resting state), as in Wing's `master`; hover only applies on devices that can hover, so a
+  tap never leaves a button stuck. Filled buttons lighten a step. Link buttons (`a.button`) are
+  excluded from the link hover rule, which otherwise turned a filled button's white label dark
+  on its dark fill.
 - **Lists use outside markers.** Wing's `inside` markers made wrapped lines tuck under the bullet.
 - **The table restacks** into label/value rows on mobile when its cells carry `data-label`
   instead of Wing's hidden horizontal scroll, which clipped content with no cue.

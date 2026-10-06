@@ -58,7 +58,9 @@
     background: oklch(0.52 0.24 266 / 0.2);
   }
 
-  :where(.wing) a {
+  /* Links that are buttons (`a.button`) keep their own colors; otherwise this hover turns a filled
+     button's white label dark on its dark fill. */
+  :where(.wing) a:not(.button) {
     @apply text-wing-blue underline underline-offset-2 transition-[color,background-color] duration-100 hover:text-wing-ink;
   }
 
@@ -99,9 +101,6 @@
   :where(.wing) :is(button, [type='submit'], .button) {
     @apply my-2.5 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-wing border-[1.5px] border-wing-ink bg-wing-ink px-9 py-2.5 text-[0.8125rem] leading-5 text-white no-underline transition-[background-color,color,border-color,transform] duration-200;
   }
-  :where(.wing) :is(button, [type='submit'], .button):hover {
-    @apply border-wing-ink-soft bg-wing-ink-soft;
-  }
   :where(.wing) :is(button, [type='submit'], .button):active {
     @apply scale-[0.99];
   }
@@ -111,8 +110,24 @@
   :where(.wing) :is(button, [type='submit'], .button).outline {
     @apply bg-transparent text-wing-ink;
   }
-  :where(.wing) :is(button, [type='submit'], .button).outline:hover {
-    @apply border-wing-gray-text bg-transparent text-wing-gray-text;
+
+  /*
+   * Filled buttons lighten a step on hover. Outline buttons invert: black fill, white label and
+   * icon (both follow currentColor), the exact negative of their resting state. The two rules
+   * are mutually exclusive (:not), so which one wins never depends on selector specificity.
+   * Hover is limited to devices that can hover, so a tap does not leave a button stuck inverted;
+   * :active covers the press everywhere.
+   */
+  @media (hover: hover) {
+    :where(.wing) :is(button, [type='submit'], .button):not(.outline, :disabled):hover {
+      @apply border-wing-ink-soft bg-wing-ink-soft;
+    }
+    :where(.wing) :is(button, [type='submit'], .button).outline:not(:disabled):hover {
+      @apply border-wing-ink bg-wing-ink text-white;
+    }
+  }
+  :where(.wing) :is(button, [type='submit'], .button).outline:not(:disabled):active {
+    @apply border-wing-ink bg-wing-ink text-white;
   }
 
   /* Form controls. Wing removed the focus outline outright; we swap it for a visible ring. */
